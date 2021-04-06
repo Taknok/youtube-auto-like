@@ -1,27 +1,27 @@
 {
 	"appName": {
-		"message": "YouTube Auto Like",
+		"message": "YouTube Auto Dislike",
 		"description": "Nome da Aplicação"
 	},
 	"appDesc": {
-		"message": "\"Automagicamente dá \"like\" em vídeos do YouTube de seus criadores de conteúdo favoritos.",
+		"message": "\"Automagicamente dá \"dislike\" em vídeos do YouTube de seus criadores de conteúdo favoritos.",
 		"description": "Descrição da aplicação"
 	},
 	"appDescDetail": {
-		"message": "Tudo que esta extensão faz é \"martelar\" o botão de \"like\" sempre que você assiste à algum vídeo de um canal que você esteja inscrito. Sem nenhum esforço. Sem necessidade de autenticar. Opcionalmente, você pode de forma automática dar \"like\" em TODOS os vídeos. Porque? Eu não sei. Divirta-se. Sinta-se livre para sugerir novas funcionalidades ou contribuir:",
+		"message": "Tudo que esta extensão faz é \"martelar\" o botão de \"dislike\" sempre que você assiste à algum vídeo de um canal que você esteja inscrito. Sem nenhum esforço. Sem necessidade de autenticar. Opcionalmente, você pode de forma automática dar \"dislike\" em TODOS os vídeos. Porque? Eu não sei. Divirta-se. Sinta-se livre para sugerir novas funcionalidades ou contribuir:",
 		"description": "Descrição detalhada para a página da loja \"web\""
 	},
 	"optLikeSub": {
-		"message": "\"Like\" só vídeos da lista de canais que estou inscrito"
+		"message": "\"Dislike\" só vídeos da lista de canais que estou inscrito"
 	},
 	"optLikeAll": {
-		"message": "\"Like\" em todos os vídeos"
+		"message": "\"Dislike\" em todos os vídeos"
 	},
 	"optLikeNone": {
 		"message": "Desativar"
 	},
 	"optLikeInstant": {
-		"message": "\"Like\" Instantâneo"
+		"message": "\"Dislike\" Instantâneo"
 	},
 	"optLikeCustom": {
 		"message": "Cronômetro personalizado"
@@ -45,7 +45,7 @@
 		"message": "Modo Lista de Permitidos"
 	},
 	"optWhiteListWarning": {
-		"message": "⚠️ lista está vazia, nenhum \"Like\" será dado"
+		"message": "⚠️ lista está vazia, nenhum \"Dislike\" será dado"
 	},
 	"linkDonate": {
 		"message": "Doar"

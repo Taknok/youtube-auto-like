@@ -1,21 +1,21 @@
 {
 	"appName": {
-		"message": "YouTube Auto Like",
+		"message": "YouTube Auto Dislike",
 		"description": "Nom de l'application"
 	},
 	"appDesc": {
-		"message": "Like automatiquement les vidéos YouTube de vos créateurs préférés.",
+		"message": "Dislike automatiquement les vidéos YouTube de vos créateurs préférés.",
 		"description": "Description de l'application"
 	},
 	"appDescDetail": {
-		"message": "Ce plugin like automatiquement les vidéos YouTube. Comme ça, vous n'oublierez plus de supporter vos créateurs préférés. Vous pouvez choisir d'aimer toutes les vidéos, seulement des chaînes souscrites ou aucune. Si vous dislikez une vidéo, celle-ci ne sera pas relikée par la suite. Aucune connexion nécessaire. Vous pouvez proposer de nouvelles fonctionnalités ou contribuer au plugin.",
+		"message": "Ce plugin dislike automatiquement les vidéos YouTube. Comme ça, vous n'oublierez plus de supporter vos créateurs préférés. Vous pouvez choisir d'aimer toutes les vidéos, seulement des chaînes souscrites ou aucune. Si vous dislikez une vidéo, celle-ci ne sera pas relikée par la suite. Aucune connexion nécessaire. Vous pouvez proposer de nouvelles fonctionnalités ou contribuer au plugin.",
 		"description": "Description detaillée pour la page web du plugin"
 	},
 	"optLikeSub": {
-		"message": "Liker les vidéos des chaines abonnées"
+		"message": "Disliker les vidéos des chaines abonnées"
 	},
 	"optLikeAll": {
-		"message": "Liker toutes les vidéos"
+		"message": "Disliker toutes les vidéos"
 	},
 	"optLikeNone": {
 		"message": "Désactiver"

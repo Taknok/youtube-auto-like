@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\app",
+    "\\app\\_locales",
+    "\\app\\_locales\\es",
+    "\\app\\_locales\\fr",
+    "\\app\\_locales\\nl",
+    "\\app\\_locales\\pl",
+    "\\app\\_locales\\pt_BR",
+    "\\app\\_locales\\sv",
+    "\\app\\_locales\\uk"
+  ],
+  "SelectedNode": "\\app\\_locales\\de\\messages.json",
+  "PreviewInSolutionExplorer": false
+}

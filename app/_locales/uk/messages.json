@@ -1,10 +1,10 @@
 {
 	"appName": {
-		"message": "YouTube Auto Like",
+		"message": "YouTube Auto Dislike",
 		"description": "Ім'я допоміжного застосунку"
 	},
 	"appDesc": {
-		"message": "Самовподобування видив ТиТрубу з числа твоїх улюблених творців.",
+		"message": "нелюбов видив ТиТрубу з числа твоїх улюблених творців.",
 		"description": "Опис застосунку"
 	},
 	"appDescDetail": {
@@ -12,16 +12,16 @@
 		"description": "Детальнійший опис на сторінці розповсюдження застосунку"
 	},
 	"optLikeSub": {
-		"message": "Вподобувати лише видива з підписок"
+		"message": "Не подобається лише видива з підписок"
 	},
 	"optLikeAll": {
-		"message": "Вподобувати усі видива"
+		"message": "Не подобається усі видива"
 	},
 	"optLikeNone": {
 		"message": "Вимкнути"
 	},
-	"optLikeInstant" : {
-		"message": "Вподобувати негайно"
+	"optLikeInstant": {
+		"message": "Не подобається негайно"
 	},
 	"optLikeCustom": {
 		"message": "Особистий лічильник"

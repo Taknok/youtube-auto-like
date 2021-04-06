@@ -4,10 +4,9 @@
 A plugin that dislikes videos from certain channels. No login required.
 
 Available in the [Firefox Add-ons store](https://addons.mozilla.org/en/firefox/addon/youtube_auto_like/) 
-The chrome extension is currently banned from the store ([old link](https://chrome.google.com/webstore/detail/youtube-auto-like/loodalcnddclgnfekfomcoiipiohcdim)).
 
 ## Issues
-You can report a issue [here](https://github.com/Taknok/youtube-auto-like/issues/new) and check the current [issues](https://github.com/Taknok/youtube-auto-like/issues).
+This is a fork from [this extension](https://github.com/Taknok/youtube-auto-). You can report a issue [here](https://github.com/Taknok/youtube-auto-like/issues/new) and check the current [issues](https://github.com/Taknok/youtube-auto-like/issues).
 
 ## Internationalization
 

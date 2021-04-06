@@ -1,12 +1,12 @@
 {
   "appName": {
-    "message": "YouTube Auto Like"
+    "message": "YouTube Auto Dislike"
   },
   "appDesc": {
-    "message": "Automatycznie lubi filmy od twoich ulubionych twórców."
+    "message": "Automatycznie nie lubi filmy od twoich ulubionych twórców."
   },
   "appDescDetail": {
-   "message": "Automatycznie naciśnięcie przycisku \"Lubię to\", gdy oglądasz film z subskrybowanego kanału! Nie wymaga żadnego wysiłku. Brak uwierzytelnienia twojego konta. Jeśli film ci się nie podoba, rozszerzenie nie zmieni twojego wyboru. Dodatkowo możesz: - Być bardziej wybiórczym: Lubić filmy dopiero po obejrzeniu 2 minut! - Automatycznie lubić KAŻDY film. Jesteś szalony! Zaproponuj nowe funkcje lub współtwórz:",
+   "message": "Automatycznie naciśnięcie przycisku \"Nie lubię to\", gdy oglądasz film z subskrybowanego kanału! Nie wymaga żadnego wysiłku. Brak uwierzytelnienia twojego konta. Jeśli film ci się nie podoba, rozszerzenie nie zmieni twojego wyboru. Dodatkowo możesz: - Być bardziej wybiórczym: Nie lubić filmy dopiero po obejrzeniu 2 minut! - Automatycznie lubić KAŻDY film. Jesteś szalony! Zaproponuj nowe funkcje lub współtwórz:",
    "description": "Pełny opis na web store"
   },
   "optLikeWhatTitle": {

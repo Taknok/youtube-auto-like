@@ -316,7 +316,7 @@ class MaterialLiker {
 	 * Clickity click the button
 	 */
 	attemptLike() {
-		this.btns.like.click();
+		this.btns.dislike.click();
 	}
 
 	/*

@@ -1,6 +1,6 @@
 {
 	"appName": {
-		"message": "YouTube Auto Like",
+		"message": "YouTube Auto Disike",
 		"description": "El nombre de la applicacion"
 	},
 	"appNamePart2": {
@@ -8,24 +8,24 @@
 	"description": "Nombre de la applicacion despues de 'YouTube'"
 	},
 	"appDesc": {
-		"message": "Este plugin like automaticamente los videos de YouTube.",
+		"message": "Este plugin dislike automaticamente los videos de YouTube.",
 		"description": "La descripcion de la application"
 	},
 	"appDescDetail": {
-	"message": "Este plugin like automáticamente los vídeos de YouTube. Puedes elegir de utilizar el plugin en todos los vídeos o unicamente en los vídeos suscribidos,  tambien puedes desactivar el plugin. Puedes poner un dislike en un vídeo, despues el plugin no pondra like automáticamente. Ninguna conexión necesitada. Puedes señalar problemas, proponer ideos y contribuir.",
+	"message": "Este plugin dislike automáticamente los vídeos de YouTube. Puedes elegir de utilizar el plugin en todos los vídeos o unicamente en los vídeos suscribidos,  tambien puedes desactivar el plugin. Puedes poner un dislike en un vídeo, despues el plugin no pondra dislike automáticamente. Ninguna conexión necesitada. Puedes señalar problemas, proponer ideos y contribuir.",
 	"description": "Completa descripcion para la pagina web"
 	},
 	"optLikeSub": {
-		"message": "Like los videos de los canales suscritos"
+		"message": "Disike los videos de los canales suscritos"
 	},
 	"optLikeAll": {
-		"message": "Like todos los videos"
+		"message": "Dislike todos los videos"
 	},
 	"optLikeNone": {
 		"message": "Desactivar"
 	},
 	"optLikeInstant" : {
-		"message": "Inmediato Like"
+		"message": "Inmediato Dislike"
 	},
 	"optLikeCustom": {
 		"message": "Customizado timer"

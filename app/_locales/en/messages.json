@@ -1,27 +1,27 @@
 {
 	"appName": {
-		"message": "YouTube Auto Like",
+		"message": "YouTube Auto Dislike",
 		"description": "Name of the application"
 	},
 	"appDesc": {
-		"message": "Automagically like YouTube videos from your favorite content creators.",
+		"message": "Automagically dislike YouTube videos from certain channels.",
 		"description": "Description of the application"
 	},
 	"appDescDetail": {
-		"message": "All this extension does is hammer the like button whenever you watch a video from a subscribed channel. No effort required. No need to authenticate. Alternatively, you can automatically like EVERY video. Why? I dunno. Go nuts. Feel free to suggest new features or contribute:",
+		"message": "All this extension does is hammer the dislike button whenever you watch a video from a blacklist, or subscribed channel. No need to authenticate. Alternatively, you can automatically dislike EVERY video. Why? I dunno. Go nuts. Feel free to suggest new features or contribute:",
 		"description": "Detail description for the web store page"
 	},
 	"optLikeSub": {
-		"message": "Like only videos from subscribed channels"
+		"message": "Dislike only videos from subscribed channels"
 	},
 	"optLikeAll": {
-		"message": "Like all videos"
+		"message": "Dislike all videos"
 	},
 	"optLikeNone": {
 		"message": "Disable"
 	},
 	"optLikeInstant": {
-		"message": "Instant Like"
+		"message": "Instant Dislike"
 	},
 	"optLikeCustom": {
 		"message": "Custom timer"
