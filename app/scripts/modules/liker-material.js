@@ -36,6 +36,95 @@ class MaterialLiker {
 		this.btns = {}
 	}
 
+	getActionsElements() {
+		// return document.querySelector("#actions #top-level-buttons-computed.top-level-buttons.style-scope.ytd-menu-renderer");
+		return document.querySelector("#menu-container");
+	}
+
+	/**
+	 * Search the svg that has .style-scope.yt-icon (which is the svg used in yt-app)
+	 * @param {string} id The id of the svg to query
+	 */
+	getUsedSVG(id) {
+		var likeSvgRawList = document.querySelectorAll(`g#${id} path`);
+
+		let svgs = null;
+		let p = null;
+		for (let item of likeSvgRawList) {
+			p = item.getAttribute("d");
+			svgs = document.querySelectorAll(`path[d="${p}"]`);
+			for (let i of svgs) {
+				if (i.matches(".style-scope.yt-icon")) return p;
+			}
+		}
+		log("No active svg found.");
+		return null;
+	}
+
+	getUsedLikeSVG() {
+		return this.getUsedSVG("like");
+	}
+
+	getUsedDislikeSVG() {
+		return this.getUsedSVG("dislike");
+	}
+
+	getUsedLikeFilledSVG() {
+		return this.getUsedSVG("like-filled");
+	}
+
+	getUsedDislikeFilledSVG() {
+		return this.getUsedSVG("dislike-filled");
+	}
+
+	getLikeDislikeElements(likePath, dislikePath) {
+		let likeElement, dislikeElement;
+		let actionsElements = this.getActionsElements();
+		
+		likeElement = actionsElements.querySelector(`g.yt-icon path[d="${likePath}"], g.iron-icon path[d="${likePath}"]`);
+		dislikeElement = actionsElements.querySelector(`g.yt-icon path[d="${dislikePath}"], g.iron-icon path[d="${dislikePath}"]`);
+
+		return [likeElement, dislikeElement];
+	}
+
+	getButtons() {
+		let _;
+		let [likeElement, dislikeElement] = this.getLikeDislikeElements(this.getUsedLikeSVG(), this.getUsedDislikeSVG());
+
+		// if a button is not found, maybe it is due to svg-filled (and the video is liked)
+		if (likeElement === null) {
+			[likeElement, _] = this.getLikeDislikeElements(this.getUsedLikeFilledSVG(), this.getUsedDislikeSVG());
+		}
+		if (dislikeElement === null) {
+			[_, dislikeElement] = this.getLikeDislikeElements(this.getUsedLikeSVG(), this.getUsedDislikeFilledSVG())
+		}
+		
+		// Make sure both icons exist
+		if (likeElement && dislikeElement) {
+			// Find and store closest buttons
+			log("got buttons");
+			let btnLike = likeElement
+				.closest('yt-icon-button, paper-icon-button');
+			let btnDislike = dislikeElement
+				.closest('yt-icon-button, paper-icon-button');
+
+			return [btnLike, btnDislike];
+				;
+		} else {
+			log ("did not get buttons");
+			return [null, null];
+		}
+	}
+
+	updateButtons() {
+		[this.btns.like, this.btns.dislike] = this.getButtons();
+
+	}
+
+	isNewLayout() {
+		return this.getUsedLikeFilledSVG() === null;
+	}
+
 	/**
 	 * Detects when like/dislike buttons have loaded (so we can press them)
 	 * and register element in the attributes
@@ -43,44 +132,17 @@ class MaterialLiker {
 	 *     have loaded
 	 */
 	waitForButtons(callback) {
-		if (this.icon.like == null && IS_CLASSIC) {
-			// get the SVG pattern
-			this.icon.like = document.querySelector('g#like path')
-				.getAttribute('d');
-			this.icon.dislike = document.querySelector('g#dislike path')
-				.getAttribute('d');
+		// wait button box load
+		let box = this.getActionsElements();
+
+		if (!box) {
+			log("wait 1s for box");
+			setTimeout(() => this.waitForButtons(callback), 1000 );
 		} else {
-			// else use the stored one
-			this.icon.like = this.iconSvgData.like;
-			this.icon.dislike = this.iconSvgData.dislike;
+			this.updateButtons();
+			callback();
 		}
 
-		if (this.icon.like != null) {
-			// Select the like button of the main video
-			let likeElement = document.querySelector(
-				`ytd-video-primary-info-renderer g.yt-icon path[d="${this.icon.like}"], g.iron-icon path[d="${this.icon.like}"]`
-			);
-			let dislikeElement = document.querySelector(
-				`ytd-video-primary-info-renderer g.yt-icon path[d="${this.icon.dislike}"], g.iron-icon path[d="${this.icon.dislike}"]`
-			);
-			
-			// Make sure both icons exist
-			if (likeElement && dislikeElement) {
-				// Find and store closest buttons
-				this.btns.like = likeElement
-					.closest('yt-icon-button, paper-icon-button');
-				this.btns.dislike = dislikeElement
-					.closest('yt-icon-button, paper-icon-button');
-				log("got buttons");
-				callback();
-			} else {
-				log("wait 1s for buttons");
-				setTimeout(() => this.waitForButtons(callback), 1000 );
-			}
-		} else {
-			log("wait 1s for svg");
-			setTimeout(() => this.waitForButtons(callback), 1000 );
-		}
 	}
 
 	/**
@@ -117,7 +179,10 @@ class MaterialLiker {
 		if (this.options.like_timer == "instant") {
 			callback();
 			return;
-		} 
+		}
+		else if (this.video.closest(".ad-showing,.ad-interrupting") !== null) {
+			setTimeout(() => this.waitTimer(callback), 1000 );
+		}
 		else if (this.options.like_timer == "random") {
 			let duration = this.video.duration;
 
@@ -202,14 +267,18 @@ class MaterialLiker {
 	 * @return {Boolean} True if the like or dislike button is active
 	 */
 	isVideoRated() {
+		log("checking if video is rated");
 		if (IS_CLASSIC) {
 			return this.btns.like.parentNode.parentNode.classList
-				 .contains("style-default-active") ||
-				 this.btns.dislike.parentNode.parentNode.classList
-				 .contains("style-default-active");
+			    .contains("style-default-active") ||
+				this.btns.dislike.parentNode.parentNode.classList
+				.contains("style-default-active");
+			
 		} else if (IS_GAMING) {
 			return this.btns.like.classList.contains("active") ||
 				 this.btns.dislike.classList.contains("active");
+		} else {
+			throw "Unknow youtube type";
 		}
 	}
 
@@ -220,46 +289,14 @@ class MaterialLiker {
 	 */
 	isUserSubscribed() {
 		let subscribeButton = document.querySelector(
-			'ytd-subscribe-button-renderer > paper-button, ytg-subscribe-button > paper-button'
+			'ytd-subscribe-button-renderer > paper-button, ytg-subscribe-button > paper-button, ytd-subscribe-button-renderer > .ytd-subscribe-button-renderer'
 		);
 		return subscribeButton && (subscribeButton.hasAttribute('subscribed') ||
 			subscribeButton.getAttribute("aria-pressed") === "true");
 	}	
 
-	/**
-	 * Wait the end of the ad
-	 * @return {function} callback The function to execute when the ad 
-	 *     is finished
-	 */
-	_waitEndOfAd(callback) {
-		// wait 1s to be sure that ad as load or not :
-		// if not waiting, js may be faster than ad loading (which is done after video loading)
-		// fortunatly, true video never start auto when an ad is loading, then wait video start to
-		// detect if this is an ad or true vid
-	 	this.waitTimerTwo(1, () => {
-			if (typeof this.video === "undefined") {
-				console.error(
-					"waitEndOfAd can only be used after waitForVideo or else this.video is not defined"
-				);
-			}
-			if (this.video.closest(".ad-showing,.ad-interrupting") !== null) {
-				setTimeout(() => this._waitEndOfAd(callback), 1000);
-				return;
-			} else {
-				log("ad finished");
-
-				// update video element to not be the ad element
-				callback();
-			}
-		});
-	}
-	waitEndOfAd(callback) {
-		log("Detecting ad");
-		this._waitEndOfAd(callback);
-		
-	}
-
 	shouldLike() {
+		this.updateButtons();
 		let rated = this.isVideoRated();
 		if (rated) {
 			log("Not like: already liked video");
@@ -336,7 +373,7 @@ class MaterialLiker {
 			return;
 		} else {
 			if (this.IS_STARTED) {
-				exit();
+				throw "Multiple run";
 			} else { //could be a new video in playlist
 				this.IS_STARTED = true;
 				return;
@@ -358,6 +395,14 @@ class MaterialLiker {
 	async init() {
 		if (this.options.like_what === "none") {
 			log("yt-autolike disabled")
+			return;
+		}
+
+		function isVideo() {
+			return window.location.href.indexOf("watch") > -1
+		}
+		if (!isVideo()) {
+			log("not a video");
 			return;
 		}
 
@@ -390,22 +435,20 @@ class MaterialLiker {
 					this.randomTimerPercent = this.randomIntFromInterval(0, 99);
 				}
 				
-				this.waitEndOfAd(() => {
-					this.waitTimer(() => {
-						/*
-						Maybe the use did an action while we was waiting, so check again
-						*/
-						if ( !this.shouldLike() ) {
-							log("not liked check 2");
-							this.finish();
-							return;
-						}
-						this.attemptLike();
-						log('liked');
-						this.options.counter += 1;
-						optionManager.set(this.options).then(() => {
-							this.finish();							
-						});
+				this.waitTimer(() => {
+					/*
+					Maybe the use did an action while we was waiting, so check again
+					*/
+					if ( !this.shouldLike() ) {
+						log("not liked check 2");
+						this.finish();
+						return;
+					}
+					this.attemptLike();
+					log('liked');
+					this.options.counter += 1;
+					optionManager.set(this.options).then(() => {
+						this.finish();							
 					});
 				});
 			});

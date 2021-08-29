@@ -12,7 +12,7 @@ This is a fork from [this extension](https://github.com/Taknok/youtube-auto-). Y
 
 Do you know another language? _I sure don't._ Feel free to contribute with a [pull request](https://github.com/Taknok/youtube-auto-like/pulls), or grab [the JSON file](https://raw.githubusercontent.com/Taknok/youtube-auto-like/master/app/_locales/en/messages.json), translate it, and [send it back to me](mailto:pg.developper.fr@gmail.com).
 
-## Developpers
+## Developers
 The debug mode option can be display in the addon popup by entering the konami code while the addon popup is opened.<br>
 :warning: `browser.storage.sync` can cause issues when loaded temporarily, change it by `browser.storage.local` in **scripts/option-manager.js**.<br>
 [PR](https://github.com/Taknok/youtube-auto-like/pulls) are welcomed :)
@@ -25,3 +25,6 @@ The debug mode option can be display in the addon popup by entering the konami c
 - [Hultan](https://github.com/Hultan) ~ SV translation
 - [C4H7Cl2O4P](https://github.com/C4H7Cl2O4P) ~ UK translation
 - [Alexandre Pennetier](https://github.com/alexandre-pennetier) ~ FR translation
+- [msmafra](https://github.com/msmafra) ~ PT translation
+- [Plunts](https://github.com/Plunts) ~ DE translation + bug fix
+- [GitMoleo](https://github.com/GitMoleo) ~ DE translation

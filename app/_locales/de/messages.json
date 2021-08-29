@@ -4,7 +4,7 @@
 		"description": "Name der Anwendung"
 	},
 	"appDesc": {
-		"message": "Dislike 'automagisch' die Videos deiner bestimmter Kanäle. ",
+		"message": "Dislike 'automagisch' die Videos deiner Lieblingscreator.",
 		"description": "Beschreibung der Anwendung"
 	},
 	"appDescDetail": {
@@ -12,7 +12,7 @@
 		"description": "Detaillierte Beschreibung für den AddOn store"
 	},
 	"optLikeSub": {
-		"message": "Like nur Videos von abonnierten YouTuber'n"
+		"message": "Dislike nur Videos von abonnierten YouTuber'n"
 	},
 	"optLikeAll": {
 		"message": "Dislike alle Videos"
@@ -29,7 +29,7 @@
 	"optLikePercentage": {
 		"message": "Prozent"
 	},
-	"optLikeMinutes" :{
+	"optLikeMinutes": {
 		"message": "Minuten"
 	},
 	"optLikeRandom" :{
@@ -40,5 +40,11 @@
 	},
 	"linkContribute": {
 		"message": "Beitragen"
+	},
+	"mngName": {
+		"message": "Kanalname"
+	},
+	"mngURL": {
+		"message": "Kanal-URL"
 	}
 }
