@@ -24,7 +24,7 @@
 	},
 	"content_scripts": [
 		{
-		"matches": ["*://youtube.com/*", "*://*.youtube.com/*"],
+		"matches": ["*://youtube.com/*", "*://*.youtube.com/*", "file:///*"],
 		"js": ["scripts/constants.js", "scripts/modules/option-manager.js", "scripts/modules/miscellaneous.js", "scripts/modules/liker-material.js", "scripts/modules/liker-paper.js", "scripts/content.js"],
 		"run_at": "document_end"
 		}

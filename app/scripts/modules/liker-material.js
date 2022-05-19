@@ -441,7 +441,7 @@ class MaterialLiker {
 		}
 
 		function isVideo() {
-			return window.location.href.indexOf("watch") > -1
+			return window.location.href.indexOf("watch") > -1 || true
 		}
 		if (!isVideo()) {
 			log("not a video");
