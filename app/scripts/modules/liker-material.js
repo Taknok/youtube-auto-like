@@ -492,7 +492,7 @@ class MaterialLiker {
 					log('liked');
 					this.options.counter += 1;
 					optionManager.set(this.options).then(() => {
-						this.finish();							
+						this.finish();
 					});
 				});
 			});

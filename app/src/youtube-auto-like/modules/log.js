@@ -1,17 +1,18 @@
-// init de log function
-var log = () => {}
-
-class Log {
+class Logger {
   constructor(debug = false) {
     this.debug = debug
   }
 
   debug(msg) {
+    if (this.debug) {
+      console.log("yal-debug: " + msg)
+    }
+  }
 
+  info(msg) {
+    console.log("yal-info: " + msg)
   }
 
   error = console.error.bind(console)
 
 }
-
-options.debug ? console.log.bind(console) : function () {};

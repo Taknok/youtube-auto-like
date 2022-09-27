@@ -19,3 +19,13 @@ function isVideoLoaded() {
     document.querySelector('#player[loading="false"]:not([hidden])') !== null
   );
 }
+
+/**
+ * Return a random integer in a given range
+ * @param {number} min An integer representing the start of the range
+ * @param {number} max An integer representing the end of the range
+ * @return {number} The random integer selected in the range
+ */
+function randomIntFromInterval(min, max) { //min and max included
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
