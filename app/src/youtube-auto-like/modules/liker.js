@@ -28,17 +28,11 @@ function startLikerProcess() {
     log.debug("yt-autolike starting");
     start();
 
-    getLikeButton().addEventListener("click", likeClicked);
-    getDislikeButton().addEventListener("click", dislikeClicked);
-    getLikeButton().addEventListener("touchstart", likeClicked);
-    getLikeButton().addEventListener("touchstart", dislikeClicked);
-
-
     window.returnLikerProcessSet = true;
   }
 }
 
-function start() {
+async function start() {
   // exit if not activated
   if (window.yal_options.like_what === "none") {
     log.debug("yt-autolike disabled");
@@ -53,7 +47,7 @@ function start() {
     return;
   }
 
-  waitTimer()
+  await waitTimer();
 
   // check if while waiting user rate the video
   if (!shouldLike()) {
@@ -68,24 +62,23 @@ function start() {
 
 }
 
-function waitTimer(callback) {
+async function waitTimer() {
   await waitAd();
 
   if (window.yal_options.like_timer === "instant") {
     log.debug("waitTimer: instant");
-    callback();
-    return;
+    return new Promise();
 
   } else if (window.yal_options.like_timer === "random") {
     window.yal_random_timer = randomIntFromInterval(0, 99);
-    await waitRandomTimer(callback);
+    return await waitRandomTimer();
 
   } else if (window.yal_options.like_timer === "custom") {
     if (window.yal_options.percentage_timer) {
-      await waitPercentTimer(callback);
+      return await waitPercentTimer();
 
     } else if (window.yal_options.minute_timer) {
-      await waitMinuteTimer(callback);
+      return await waitMinuteTimer();
 
     } else {
       log.error("Should not reach this point 1");
@@ -95,7 +88,7 @@ function waitTimer(callback) {
   }
 }
 
-async function waitMinuteTimer(callback) {
+async function waitMinuteTimer() {
   log.debug("waitTimer: minute");
   let timeAtLike = window.yal_options.minute_value;
 
@@ -109,32 +102,33 @@ async function waitMinuteTimer(callback) {
   }
 
   if (video().currentTime >= timeAtLike) {
-    callback();
-    return;
+    return new Promise();
+  } else {
+      return setTimeout(waitMinuteTimer, 1000);
   }
 }
 
-async function waitPercentTimer(callback) {
+async function waitPercentTimer() {
   log.debug("waitTimer: percent")
   let percentageAtLike = window.yal_options.percentage_value;
   let nowInPercent = video().currentTime / duration * 100;
 
   if (nowInPercent >= percentageAtLike) {
-    callback();
+    return new Promise();
   } else {
-    setTimeout(() => waitPercentTimer(callback), 1000);
+    return setTimeout(waitPercentTimer, 1000);
   }
 }
 
-async function waitRandomTimer(callback) {
+async function waitRandomTimer() {
   log.debug("waitTimer: random")
   let duration = video().duration;
   let nowInPercent = video().currentTime / duration * 100;
 
   if (nowInPercent >= window.yal_random_timer) {
-    callback();
+    return new Promise();
   } else {
-    setTimeout(() => waitRandomTimer(callback), 1000);
+    return setTimeout(waitRandomTimer, 1000);
   }
 }
 
@@ -142,7 +136,7 @@ async function waitAd() {
   let adRunning = video().closest(".ad-showing,.ad-interrupting") !== null
   if (adRunning) {
     log.debug("wait ad");
-    return await setTimeout(() => waitAd(), 1000);
+    return await setTimeout(waitAd, 1000);
   }
 }
 
