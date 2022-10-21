@@ -1,7 +1,7 @@
-import { isMobile, isShorts } from "./state";
-import { isInViewport } from "./utils";
+import { isMobile, isShorts } from "./states.js";
+import { isInViewport } from "./utils.js";
 
-function getButtons() {
+export function getButtons() {
   //---   If Watching Youtube Shorts:   ---//
   if (isShorts()) {
     let elements = document.querySelectorAll(
@@ -32,14 +32,14 @@ function getButtons() {
   }
 }
 
-function getLikeButton() {
+export function getLikeButton() {
   return getButtons().children[0].tagName ===
     "YTD-SEGMENTED-LIKE-DISLIKE-BUTTON-RENDERER"
     ? getButtons().children[0].children[0]
     : getButtons().children[0];
 }
 
-function getDislikeButton() {
+export function getDislikeButton() {
   return getButtons().children[0].tagName ===
     "YTD-SEGMENTED-LIKE-DISLIKE-BUTTON-RENDERER"
     ? getButtons().children[0].children[1]

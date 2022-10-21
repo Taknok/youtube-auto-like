@@ -23,7 +23,8 @@ function startLikerProcess() {
   if (!window.returnLikerProcessSet) {
     optionManager = new OptionManager()
     window.yal_options = await optionManager.get();
-    var log = Logger(window.yal_options.debug);
+    // var log = Logger(window.yal_options.debug);
+    var log = Logger(true);
 
     log.debug("yt-autolike starting");
     start();
