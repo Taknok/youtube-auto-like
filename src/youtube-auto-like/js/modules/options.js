@@ -20,7 +20,7 @@ var DEFAULT_OPTIONS = {
   counter: 0,
 }
 
-class OptionManager {
+export class OptionManager {
   /**
    * @param  {Object} defaults Figure it out
    */

@@ -1,4 +1,4 @@
-class Logger {
+export class Logger {
   constructor(debug = false) {
     this.debug = debug
   }

@@ -7,48 +7,41 @@ import {
 //---   Import State Functions   ---//
 import {
   isShorts,
-  getButtons,
-  setInitialState,
-} from "./modules/states";
+  isMobile,
+} from "./modules/states.js";
 
-// //---   Import Video & Browser Functions   ---//
-// import {
-//   isVideoLoaded,
-// } from "./modules/utils";
+//---   Import Video & Browser Functions   ---//
+import {
+  isVideoLoaded,
+} from "./modules/video.js";
 
-// //---   Import Event Functions   ---//
-// import {
-//   addLikeDislikeEventListener,
-// } from "./src/events";
+//---   Import Liker Functions   ---//
+import {
+  startLikerProcess,
+} from "./modules/liker.js";
 
-// //---   Import Liker Functions   ---//
-// import {
-//   startLikerProcess,
-// } from "./src/liker";
+let jsInitChecktimer = null;
 
-// let jsInitChecktimer = null;
+function setEventListeners(evt) {
+  function checkForJS_Finish() {
+    if (isShorts() || (getButtons()?.offsetParent && isVideoLoaded())) {
+      startLikerProcess();
+      // getBrowser().storage.onChanged.addListener(storageChangeHandler);
+      clearInterval(jsInitChecktimer);
+      jsInitChecktimer = null;
+    }
+  }
 
-// function setEventListeners(evt) {
-//   function checkForJS_Finish() {
-//     if (isShorts() || (getButtons()?.offsetParent && isVideoLoaded())) {
-//       startLikerProcess();
-//       // setInitialState();
-//       // getBrowser().storage.onChanged.addListener(storageChangeHandler);
-//       clearInterval(jsInitChecktimer);
-//       jsInitChecktimer = null;
-//     }
-//   }
+  jsInitChecktimer = setInterval(checkForJS_Finish, 1000);
+}
 
-//   jsInitChecktimer = setInterval(checkForJS_Finish, 1000);
-// }
+setEventListeners();
 
-// setEventListeners();
-
-// document.addEventListener("yt-navigate-finish", function (event) {
-//   if (jsInitChecktimer !== null) clearInterval(jsInitChecktimer);
-//   window.returnLikerProcessSet = false;
-//   setEventListeners();
-// });
+document.addEventListener("yt-navigate-finish", function (event) {
+  if (jsInitChecktimer !== null) clearInterval(jsInitChecktimer);
+  window.returnLikerProcessSet = false;
+  setEventListeners();
+});
 
 
 export function main() {
