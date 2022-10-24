@@ -1,3 +1,14 @@
+import {
+  Logger
+} from "./log.js";
+
+import {
+  getLikeButton,
+  getDislikeButton
+} from "./buttons.js";
+
+var log = new Logger(true);
+
 export function video() {
   return document.querySelectorAll(".video-stream")[0];
 }
@@ -22,4 +33,14 @@ export function isVideoLoaded() {
     // mobile: no video-id attribute
     document.querySelector('#player[loading="false"]:not([hidden])') !== null
   );
+}
+
+/**
+ * Take a wild guess
+ * @return {Boolean} True if the like or dislike button is active
+ */
+export function isVideoRated() {
+  log.debug("checking if video is rated");
+    return getLikeButton().classList.contains("style-default-active") ||
+      getDislikeButton().classList.contains("style-default-active");
 }

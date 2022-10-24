@@ -1,5 +1,12 @@
-import { isMobile, isShorts } from "./states.js";
-import { isInViewport } from "./utils.js";
+import {
+  isMobile,
+  isShorts
+} from "./states.js";
+
+import {
+  isInViewport,
+  isVisible
+} from "./utils.js";
 
 export function getButtons() {
   //---   If Watching Youtube Shorts:   ---//
@@ -44,4 +51,30 @@ export function getDislikeButton() {
     "YTD-SEGMENTED-LIKE-DISLIKE-BUTTON-RENDERER"
     ? getButtons().children[0].children[1]
     : getButtons().children[1];
+}
+
+export function getSubscribeButton() {
+  //---   If Watching Youtube Shorts:   ---//
+  if (isShorts()) {
+    let elements = document.querySelectorAll("#subscribe-button");
+    for (let element of elements) {
+      //Youtube Shorts can have multiple like/dislike buttons when scrolling through videos
+      //However, only one of them should be visible (no matter how you zoom)
+      if (isVisible(element)) {
+        return element;
+      }
+    }
+  }
+  //---   If Watching On Mobile:   ---//
+  if (isMobile()) {
+    return document.querySelector("ytm-subscribe-button-renderer");
+  }
+  //---   If Menu Element Is Displayed:   ---//
+  if (document.getElementById("menu-container")?.offsetParent === null) {
+    return document.querySelector("#subscribe-button").children[0];
+    //---   If Menu Element Isnt Displayed:   ---//
+  } else {
+    return document
+      .querySelector("#subscribe-button.ytd-video-secondary-info-renderer a")
+  }
 }

@@ -1,10 +1,10 @@
 export class Logger {
   constructor(debug = false) {
-    this.debug = debug
+    this.verbose = debug
   }
 
   debug(msg) {
-    if (this.debug) {
+    if (this.verbose) {
       console.log("yal-debug: " + msg)
     }
   }
