@@ -41,6 +41,25 @@ export function isVideoLoaded() {
  */
 export function isVideoRated() {
   log.debug("checking if video is rated");
-    return getLikeButton().classList.contains("style-default-active") ||
-      getDislikeButton().classList.contains("style-default-active");
+  return getLikeButton().classList.contains("style-default-active") ||
+    getDislikeButton().classList.contains("style-default-active");
 }
+
+/**
+ * Another tough one
+ * @return {Boolean} True if the user is subscribed to
+ *                   the current video's channel
+ */
+export function isUserSubscribed() {
+    let subscribeButton = document.querySelector(
+      'ytd-subscribe-button-renderer > paper-button, ytg-subscribe-button > paper-button, ytd-subscribe-button-renderer > .ytd-subscribe-button-renderer'
+    );
+    // if new youtube 06/2022
+    if (subscribeButton.hasAttribute("hidden")) {
+      subscribeButton = document.querySelector(
+        'ytd-subscribe-button-renderer > tp-yt-paper-button.ytd-subscribe-button-renderer'
+      )
+    }
+    return subscribeButton && (subscribeButton.hasAttribute('subscribed') ||
+      subscribeButton.getAttribute("aria-pressed") === "true");
+  } 

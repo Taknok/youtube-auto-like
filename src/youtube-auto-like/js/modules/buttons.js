@@ -71,7 +71,7 @@ export function getSubscribeButton() {
   }
   //---   If Menu Element Is Displayed:   ---//
   if (document.getElementById("menu-container")?.offsetParent === null) {
-    return document.querySelector("#subscribe-button").children[0];
+    return document.querySelector("#subscribe-button tp-yt-paper-button");
     //---   If Menu Element Isnt Displayed:   ---//
   } else {
     return document
