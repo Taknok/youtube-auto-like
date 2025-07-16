@@ -6,6 +6,15 @@ A plugin that likes videos from channels you subscribe to, so you never forget t
 Available in the [Firefox Add-ons store](https://addons.mozilla.org/en/firefox/addon/youtube_auto_like/) 
 The chrome extension is currently banned from the store ([old link](https://chrome.google.com/webstore/detail/youtube-auto-like/loodalcnddclgnfekfomcoiipiohcdim)).
 
+## List functionality
+You can restrict the addon actions to the creators of a custom list. To add a creator to your list, you need to be on a video page or the home page of a YouTube channel. Once there, the add button will appear, as shown below:
+
+<img height="80em" alt="Image" src="https://github.com/user-attachments/assets/e6144c08-0d9c-45d1-b3d8-4ccf54e75bb3" />
+
+Using the manage list feature, you can remove the creator from the list if necessary:
+
+<img height="50em" alt="Image" src="https://github.com/user-attachments/assets/ce3f46d5-c367-427f-8c2e-b347803c171f" />
+
 ## Issues
 You can report an issue [here](https://github.com/Taknok/youtube-auto-like/issues/new) and check the current [issues](https://github.com/Taknok/youtube-auto-like/issues).
 
