@@ -1,3 +1,41 @@
+function getVariableFromPage(varName, timeout = 10000) {
+	return new Promise((resolve, reject) => {
+		const id = `getVar_${varName}_${Date.now()}`;
+
+		// Listen for the response
+		function handleMessage(event) {
+			if (event.source !== window) return;
+			if (event.data?.type === 'VAR_RESPONSE' && event.data.id === id) {
+				window.removeEventListener('message', handleMessage);
+				resolve(event.data.value);
+			}
+		}
+
+		window.addEventListener('message', handleMessage);
+
+		// Inject a script to retrieve the variable
+		const script = document.createElement('script');
+		script.textContent = `
+			(function() {
+				try {
+					const value = window["${varName}"];
+					window.postMessage({ type: 'VAR_RESPONSE', id: "${id}", value }, '*');
+				} catch (e) {
+					window.postMessage({ type: 'VAR_RESPONSE', id: "${id}", value: null }, '*');
+				}
+			})();
+		`;
+		(document.head || document.documentElement).appendChild(script);
+		script.remove();
+
+		// Timeout
+		setTimeout(() => {
+			window.removeEventListener('message', handleMessage);
+			reject(new Error(`Variable "\${varName}" not found within timeout`));
+		}, timeout);
+	});
+}
+
 async function saveCreator(creator) {
 	console.log("Saving this creator")
 	console.log("Retrieving saved creators")
@@ -65,18 +103,16 @@ function areCreatorsEquals(x, y) {
 }
 
 function getCreatorFromVideo() {
-	let creatorBlock = null;
-	let name = null;
-	let URL = null;
-	if (window.IS_PAPER) {
-		creatorBlock = document.querySelector("ytd-video-owner-renderer .ytd-channel-name #text a");
-		name = creatorBlock.textContent;
-		URL = creatorBlock.href;
-	} else {
-		creatorBlock = document.querySelector("#container.ytd-video-secondary-info-renderer");
-		name = creatorBlock.querySelector("yt-formatted-string.ytd-channel-name>a").textContent;
-		URL = creatorBlock.querySelector("yt-formatted-string.ytd-channel-name>a").href;
-	}
+	let videoDetails = ytInitialPlayerResponse?.videoDetails;
+	let name = videoDetails?.author;
+	let URL = `https://www.youtube.com/channel/${videoDetails?.channelId}`;
+	return {name, URL};
+}
+
+function getCreatorFromHome() {
+	let channelDetails = ytInitialData?.metadata?.channelMetadataRenderer;
+	let name = channelDetails?.title;
+	let URL = channelDetails?.channelUrl;
 	return {name, URL};
 }
 
@@ -115,21 +151,21 @@ function isNotHidden(node) {
  * @param {any} message An additional message for the error.
  */
 function NotImplementedError(message) {
-  /// <summary>The error thrown when the given function isn't implemented.</summary>
-  const sender = (new Error())
-    .stack
-    .split('\n')[2]
-    .replace(' at ', '');
-  this.message = `The method ${sender} isn't implemented.`;
+	/// <summary>The error thrown when the given function isn't implemented.</summary>
+	const sender = (new Error())
+		.stack
+		.split('\n')[2]
+		.replace(' at ', '');
+	this.message = `The method ${sender} isn't implemented.`;
 
-  // Append the message if given.
-  if (message) { this.message += ` Message: "${message}".`; }
+	// Append the message if given.
+	if (message) { this.message += ` Message: "${message}".`; }
 
-  let str = this.message;
+	let str = this.message;
 
-  while (str.indexOf('  ') > -1) {
-    str = str.replace('  ', ' ');
-  }
+	while (str.indexOf('  ') > -1) {
+		str = str.replace('  ', ' ');
+	}
 
-  this.message = str;
+	this.message = str;
 }
