@@ -48,7 +48,7 @@ function isVideo(url) {
 }
 
 function isHome(url) {
-	return url.indexOf("https://www.youtube.com/channel/") !== -1 || url.indexOf("https://www.youtube.com/user/") !== -1;
+	return url.indexOf("https://www.youtube.com/channel/") !== -1 || url.indexOf("https://www.youtube.com/user/") !== -1 || url.indexOf("https://www.youtube.com/@") !== -1;
 }
 
 async function getCurrentWindowTabs() {
