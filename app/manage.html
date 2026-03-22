@@ -29,6 +29,16 @@
 			</tbody>
 		</table>
 	</div>
+	<div id="import-export-controls">
+		<div id=export>	
+			<button id="exportCreators" type="button">Export creators (JSON)</button>
+		</div>
+		<div id=import>
+			<input id="importFile" type="file" accept="application/json,.json" style="display:none" />
+			<button id="importCreators" type="button">Import creators (JSON)</button>
+		</div>
+		<span id="ioStatus"></span>
+	</div>
 	<script src="scripts/modules/i18n.js"></script><script src="scripts/constants.js"></script><script src="scripts/modules/option-manager.js"></script><script src="scripts/modules/miscellaneous.js"></script><script src="scripts/manage.js"></script>
 	<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
 	<symbol id="icon-git" viewbox="0 0 512 512">
