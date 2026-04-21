@@ -48,7 +48,7 @@ function isVideo(url) {
 }
 
 function isHome(url) {
-	return url.indexOf("https://www.youtube.com/channel/") !== -1 || url.indexOf("https://www.youtube.com/user/") !== -1;
+	return url.indexOf("https://www.youtube.com/channel/") !== -1 || url.indexOf("https://www.youtube.com/user/") !== -1 || url.indexOf("https://www.youtube.com/@") !== -1;
 }
 
 async function getCurrentWindowTabs() {
@@ -72,8 +72,7 @@ async function callCreatorFromVideo(tab) {
 }
 
 async function callCreatorFromHome(tab) {
-	let creator = await browser.tabs.sendMessage(tab.id, "get_creator_from_home");
-	return creator
+	return await browser.tabs.sendMessage(tab.id, "get_creator_from_home");
 }
 
 // async because video description may not be loaded yet
@@ -82,9 +81,9 @@ async function getThisCreator(tab) {
 	if (isVideo(tab.url)) {
 		creator = await callCreatorFromVideo(tab);
 	}
-	/* else if (isHome(tab.url)) {
+	else if (isHome(tab.url)) {
 		creator = await callCreatorFromHome(tab);
-	} */
+	}
 	else {
 		throw "Not a video or a creator";
 	}
@@ -118,7 +117,7 @@ function removeThisCreator() {
 function displayAddRmButton() {
 	getActiveTab().then((tab) => {
 		if (tab.url === undefined) tab.url = ""
-		if (isVideo(tab.url)) {
+		if (isVideo(tab.url) || isHome(tab.url)) {
 			getThisCreator(tab).then((creator) => {
 				isInList(creator).then((in_list) => {
 					if ( in_list ) {

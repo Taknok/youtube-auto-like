@@ -21,8 +21,8 @@ class PaperLiker extends MetaLiker {
 	 *                   the current video's channel
 	 */
 	isUserSubscribed() {
-		let subscribeButtons = document.querySelectorAll("ytd-subscribe-button-renderer :not(*[hidden]) button.yt-spec-button-shape-next--tonal")
-		// the ':not(*[hidden]) ytd-subscribe-button-renderer :not(*[hidden]) button.yt-spec-button-shape-next--tonal'
+		let subscribeButtons = document.querySelectorAll("ytd-subscribe-button-renderer :not(*[hidden]) button.ytSpecButtonShapeNextTonal")
+		// the ':not(*[hidden]) ytd-subscribe-button-renderer :not(*[hidden]) button.ytSpecButtonShapeNextTonal'
 		// does not work, thus use isHidden
 		let buttonExist = subscribeButtons.length > 0
 		log("sub button exist: ", buttonExist)

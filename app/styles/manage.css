@@ -99,6 +99,35 @@ table th {
   }
 }
 
+#import-export-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  margin-top: 12px;
+}
+
+#import-export-controls button {
+  padding: 8px 16px;
+  background-color: #e62117;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+#import-export-controls button:hover {
+  background-color: #d11a0e;
+}
+
+#ioStatus {
+  margin-left: 10px;
+  font-size: 0.9em;
+  color: #4caf50;
+}
+
 @media screen and (max-width: 600px) {
   table {
     border: 0;
