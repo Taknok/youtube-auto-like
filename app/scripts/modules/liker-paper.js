@@ -22,13 +22,11 @@ class PaperLiker extends MetaLiker {
 	 */
 	isUserSubscribed() {
 		let subscribeButtons = document.querySelectorAll("ytd-subscribe-button-renderer :not(*[hidden]) button.ytSpecButtonShapeNextTonal")
-		// the ':not(*[hidden]) ytd-subscribe-button-renderer :not(*[hidden]) button.ytSpecButtonShapeNextTonal'
-		// does not work, thus use isHidden
 		let buttonExist = subscribeButtons.length > 0
 		log("sub button exist: ", buttonExist)
 		if (!buttonExist) return false
 
-		let subscribeButton = Array.from(subscribeButtons).find(isNotHidden)
+		let subscribeButton = Array.from(subscribeButtons).find(isVisible)
 		log("sub button not hidden: ", subscribeButton)
 		return subscribeButton !== undefined;
 	}
