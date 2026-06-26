@@ -44,4 +44,5 @@ jobs:
             --source-dir app \
             --api-key "$WEB_EXT_API_KEY" \
             --api-secret "$WEB_EXT_API_SECRET" \
-            --artifacts-dir dist
+            --artifacts-dir dist \
+            --channel listed

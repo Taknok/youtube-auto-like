@@ -32,7 +32,7 @@
         "assets": [
           {
             "path": "dist/*.zip",
-            "label": "Firefox add-on package"
+            "label": "yal-${version}.zip"
           }
         ]
       }
