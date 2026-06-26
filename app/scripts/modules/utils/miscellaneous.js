@@ -131,21 +131,6 @@ async function isInList(creator) {
 	return in_list;
 }
 
-function isHidden(node) {
-	// if reach root html
-	if (node === document) return false;
-
-	if (node.hasAttribute("hidden") || node.hasAttribute("invisible")) {
-		return true;
-	} else {
-		return isHidden(node.parentNode);
-	}
-}
-
-function isNotHidden(node) {
-	return !isHidden(node);
-}
-
 /**
  * @summary A error thrown when a method is defined but not implemented (yet).
  * @param {any} message An additional message for the error.

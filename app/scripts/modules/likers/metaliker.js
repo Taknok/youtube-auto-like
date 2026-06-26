@@ -346,24 +346,21 @@ class MetaLiker {
 			return;
 		}
 
-		function isVideo() {
-			return window.location.href.indexOf("watch") > -1
-		}
-		if (!isVideo()) {
-			log("not a video");
-			return;
-		}
+		// function isVideo() {
+		// 	return window.location.href.indexOf("watch") > -1
+		// }
+		// if (!isVideo()) {
+		// 	log("not a video");
+		// 	return;
+		// }
 
 		if (this.blockMultipleRun()) {
 			return;
 		}
 		log('yt-autolike start')
-		// this.skipAd(() => {
-		// 	if(this.isAdPlaying) {
-		// 		document.getElementsByClassName('videoAdUiSkipButton')[0].click;
-		// 	}
-		// });
+
 		await this.update_options();
+
 		this.waitForVideo(() => {
 			this.waitForButtons(() => {
 				/*

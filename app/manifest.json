@@ -1,6 +1,6 @@
 {
 	"name": "__MSG_appName__",
-	"version": "4.1.0",
+	"version": "4.2.0",
 	"manifest_version": 2,
 	"description": "__MSG_appDesc__",
 	"icons": {
@@ -25,14 +25,36 @@
 	"content_scripts": [
 		{
 		"matches": ["*://youtube.com/*", "*://*.youtube.com/*"],
-		"js": ["scripts/constants.js", "scripts/modules/option-manager.js", "scripts/modules/miscellaneous.js", "scripts/modules/metaliker.js", "scripts/modules/liker-paper.js", "scripts/modules/liker-grid.js", "scripts/content.js"],
+		"exclude_matches": ["*://*.music.youtube.com/*"],
+		"js": [
+			"scripts/constants.js",
+			"scripts/modules/storage/option-manager.js",
+			"scripts/modules/utils/miscellaneous.js",
+			"scripts/modules/likers/metaliker.js",
+			"scripts/modules/likers/liker-paper.js",
+			"scripts/modules/likers/liker-grid.js",
+			"scripts/modules/likers/liker-short.js",
+			"scripts/content.js"
+		],
 		"run_at": "document_end"
 		}
 	],
 	"background": {
-		"scripts": ["scripts/background.js", "scripts/modules/option-manager.js", "scripts/constants.js"]
+		"scripts": [
+			"scripts/background.js",
+			"scripts/modules/storage/option-manager.js",
+			"scripts/constants.js"
+		]
 	},
 	"options_ui": {
 		"page": "options.html"
+	},
+	"browser_specific_settings": {
+		"gecko": {
+			"id": "{21b3b6ae-1582-4db8-84b3-b6cc45a4a92c}",
+			"data_collection_permissions": {
+				"required": ["none"]
+			}
+		}
 	}
 }

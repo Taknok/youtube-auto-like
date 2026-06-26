@@ -48,10 +48,13 @@ getVariableFromPage("ytInitialData")
 	});
 
 function startLikerProcess(options) {
+	log("Starting liker process");
 	var IS_PAPER = document.querySelector("ytd-subscribe-button-renderer") !== null;
 	var IS_GRID = document.querySelectorAll("ytd-watch-grid").length !== 0;
+	var IS_SHORT = location.pathname.startsWith("/shorts");
 	window.IS_PAPER = IS_PAPER;
 	window.IS_GRID = IS_GRID;
+	window.IS_SHORT = IS_SHORT;
 	let liker = null;
 	if (IS_GRID) {
 		log("grid liker init");
@@ -59,6 +62,9 @@ function startLikerProcess(options) {
 	} else if (IS_PAPER) {
 		log("paper liker init");
 		liker = new PaperLiker(options);
+	} else if (IS_SHORT) {
+		log("short liker init");
+		liker = new ShortLiker(options);
 	}
 
 	if (IS_CLASSIC) {
@@ -112,18 +118,6 @@ function isVisible(elem) {
 	return false;
 }
 
-function getButtons() {
-	//---   If Menu Element Is Displayed:   ---//
-	if (document.getElementById("menu-container")?.offsetParent === null) {
-		return document.querySelector("ytd-menu-renderer.ytd-watch-metadata > div");
-		//---   If Menu Element Isnt Displayed:   ---//
-	} else {
-		return document
-			.getElementById("menu-container")
-			?.querySelector("#top-level-buttons-computed");
-	}
-}
-
 function getVideoId(url) {
 	const urlObject = new URL(url);
 	const pathname = urlObject.pathname;
@@ -144,7 +138,9 @@ function isVideoLoaded() {
 		// mobile: no video-id attribute
 		document.querySelector('#player[loading="false"]:not([hidden])') !== null ||
 		// new: layout 08/2023
-		document.querySelector(`ytd-watch-grid[video-id='${videoId}']`) !== null
+		document.querySelector(`ytd-watch-grid[video-id='${videoId}']`) !== null ||
+		// short
+		isVisible(document.querySelectorAll("#shorts-player video")[0]) === true
 	);
 }
 
@@ -157,7 +153,8 @@ optionManager.get().then((options) => {
 
 	function setEventListeners(evt) {
 		function checkForJS_Finish() {
-			if ( getButtons()?.offsetParent && isVideoLoaded() ) {
+			log("Checking if video is loaded");
+			if ( isVideoLoaded() ) {
 				startLikerProcess(options);
 				// getBrowser().storage.onChanged.addListener(storageChangeHandler);
 				clearInterval(jsInitChecktimer);
@@ -171,6 +168,7 @@ optionManager.get().then((options) => {
 	setEventListeners();
 
 	document.addEventListener("yt-navigate-finish", function (event) {
+		log("yt-navigate-finish event detected");
 		if (jsInitChecktimer !== null) clearInterval(jsInitChecktimer);
 		window.returnLikerProcessSet = false;
 		setEventListeners();
