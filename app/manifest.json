@@ -26,12 +26,25 @@
 		{
 		"matches": ["*://youtube.com/*", "*://*.youtube.com/*"],
 		"exclude_matches": ["*://*.music.youtube.com/*"],
-		"js": ["scripts/constants.js", "scripts/modules/option-manager.js", "scripts/modules/miscellaneous.js", "scripts/modules/metaliker.js", "scripts/modules/liker-paper.js", "scripts/modules/liker-grid.js", "scripts/modules/liker-short.js", "scripts/content.js"],
+		"js": [
+			"scripts/constants.js",
+			"scripts/modules/storage/option-manager.js",
+			"scripts/modules/utils/miscellaneous.js",
+			"scripts/modules/likers/metaliker.js",
+			"scripts/modules/likers/liker-paper.js",
+			"scripts/modules/likers/liker-grid.js",
+			"scripts/modules/likers/liker-short.js",
+			"scripts/content.js"
+		],
 		"run_at": "document_end"
 		}
 	],
 	"background": {
-		"scripts": ["scripts/background.js", "scripts/modules/option-manager.js", "scripts/constants.js"]
+		"scripts": [
+			"scripts/background.js",
+			"scripts/modules/storage/option-manager.js",
+			"scripts/constants.js"
+		]
 	},
 	"options_ui": {
 		"page": "options.html"
