@@ -32,7 +32,7 @@
         "assets": [
           {
             "path": "dist/*.zip",
-            "label": "yal-${version}.zip"
+            "label": "yal-<%= nextRelease.version %>.zip"
           }
         ]
       }
