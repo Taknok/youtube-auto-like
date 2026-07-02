@@ -1,3 +1,9 @@
+## [4.2.1](https://github.com/Taknok/youtube-auto-like/compare/4.2.0...4.2.1) (2026-07-02)
+
+### Bug Fixes
+
+* bug when using minute timer with shorts ([6081b1b](https://github.com/Taknok/youtube-auto-like/commit/6081b1bbf855bfc703bbaf1355be887f346868cd))
+
 ## 4.2.0 (2026-06-26)
 
 
