@@ -34,7 +34,11 @@ class MetaLiker {
 		if (this.VIDEO_SELECTOR === null) {
 			NotImplementedError();
 		}
-		return document.querySelector(this.VIDEO_SELECTOR);
+		for (let video of document.querySelectorAll(this.VIDEO_SELECTOR)) {
+			if (isVisible(video)) {
+				return video;
+			}
+		}
 	}
 
 	getActionsElements() {
@@ -116,7 +120,7 @@ class MetaLiker {
 	*/
 	waitForVideo(callback) {
 		if (this.video()) {
-			log("Get Video.")
+			log("Get Video:", this.video());
 			if (this.isLive()) {
 				log("Video is live");
 				this.liveStartedAt = this.video().currentTime;
@@ -167,40 +171,40 @@ class MetaLiker {
 		}
 		else {
 			let duration = this.video().duration;
-
+			let currentT = this.isLive() ? (this.video().currentTime - this.liveStartedAt) : this.video().currentTime;
+			let timeAtLikePercent = Infinity;
+			let timeAtLikeMinute = Infinity;
+			let timeAtLike = null;
+			// cannot like a % of live video, so we ignore the percentage timer if the video is live
 			if (this.options.percentage_timer && !this.isLive()) {
 				log("waitTimer: percent")
 				let percentageAtLike = this.options.percentage_value;
-				let nowInPercent = this.video().currentTime / duration * 100;
-				log(nowInPercent, percentageAtLike)
-
-				if (nowInPercent >= percentageAtLike) {
-					callback();
-					return;
-				}
+				timeAtLikePercent = duration * percentageAtLike / 100;
 			}
 
-			let currentT = this.isLive() ? (this.video().currentTime - this.liveStartedAt) : this.video().currentTime;
 			if (this.options.minute_timer) {
 				log("waitTimer: minute")
-				let timeAtLike = this.options.minute_value * 60;
-				// change timeAtLike if vid shorter than time set by user
-				log(currentT, duration, timeAtLike)
-				if (duration < timeAtLike) {
-					timeAtLike = duration;
-				}
-				if (currentT >= timeAtLike) {
-					callback();
-					return;
-				}
+				timeAtLikeMinute = this.options.minute_value * 60;
 			}
+			timeAtLike = Math.min(timeAtLikePercent, timeAtLikeMinute);
 
-			// if both are disable event if custom timer is set
-			if (!this.options.minute_timer && !this.options.percentage_timer) {
-				// instant like
+			// change timeAtLike if vid shorter than time set by user
+			if (duration <= timeAtLike) {
+				timeAtLike = duration - 2; // like 2s before the end of the video to prevent replay to reset the current time
+			}
+			log(currentT, duration, timeAtLike)
+
+			if (currentT >= timeAtLike) {
 				callback();
 				return;
 			}
+
+			// // if both are disable event if custom timer is set
+			// if (!this.options.minute_timer && !this.options.percentage_timer) {
+			// 	// instant like
+			// 	callback();
+			// 	return;
+			// }
 
 			setTimeout(() => this.waitTimer(callback), 1000 );
 		}

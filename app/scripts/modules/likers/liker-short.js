@@ -7,7 +7,7 @@ class ShortLiker extends MetaLiker {
 	VIDEO_SELECTOR = ".video-stream";
 	ACTION_ELEMENTS_SELECTOR = "reel-action-bar-view-model";
 	LIKE_SELECTOR = "like-button-view-model button";
-	DISLIKE_SELECTOR = "dislike-button-view-model button";
+	DISLIKE_SELECTOR = this.LIKE_SELECTOR; // there is no dislike button on shorts
 	LIVE_SELECTOR = ".ytp-live-badge[disabled='']"; // not sure if it works on shorts
 
 	isVideoRated(like, dislike) {

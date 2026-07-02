@@ -133,15 +133,16 @@ function getVideoId(url) {
 
 function isVideoLoaded() {
 	const videoId = getVideoId(window.location.href);
-	return (
-		document.querySelector(`ytd-watch-flexy[video-id='${videoId}']`) !== null ||
-		// mobile: no video-id attribute
-		document.querySelector('#player[loading="false"]:not([hidden])') !== null ||
-		// new: layout 08/2023
-		document.querySelector(`ytd-watch-grid[video-id='${videoId}']`) !== null ||
-		// short
-		isVisible(document.querySelectorAll("#shorts-player video")[0]) === true
-	);
+	if (
+		document.querySelector(`ytd-watch-flexy[video-id='${videoId}']`) ||
+		document.querySelector('#player[loading="false"]:not([hidden])') ||
+		document.querySelector(`ytd-watch-grid[video-id='${videoId}']`)
+	) {
+		return true;
+	}
+
+	let shortVideo = document.querySelector("#shorts-player video");
+	return shortVideo instanceof Element && isVisible(shortVideo);
 }
 
 // Fetch our options then fire things up
@@ -155,10 +156,13 @@ optionManager.get().then((options) => {
 		function checkForJS_Finish() {
 			log("Checking if video is loaded");
 			if ( isVideoLoaded() ) {
+				log("Video is loaded, starting liker process");
 				startLikerProcess(options);
 				// getBrowser().storage.onChanged.addListener(storageChangeHandler);
 				clearInterval(jsInitChecktimer);
 				jsInitChecktimer = null;
+			} else {
+				log("Video is not loaded yet");
 			}
 		}
 
