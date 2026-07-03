@@ -29,6 +29,15 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Debug workspace
+        run: |
+          pwd
+          ls -la
+          ls -la scripts || true
+          find . -name "update-manifest.js"
+          git rev-parse HEAD
+          git status
+
       - name: Run semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
