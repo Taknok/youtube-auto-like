@@ -12,7 +12,7 @@
     "@semantic-release/git": "^10.0.0",
     "@semantic-release/github": "^10.0.0",
     "@semantic-release/release-notes-generator": "^14.1.1",
-    "conventional-changelog-conventionalcommits": "^9.3.1",
+    "conventional-changelog-conventionalcommits": "^10.2.0",
     "semantic-release": "^25.0.5",
     "web-ext": "^10.4.0"
   }
