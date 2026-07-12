@@ -14,6 +14,8 @@ permissions:
 jobs:
   release:
     runs-on: ubuntu-latest
+    outputs:
+      released: ${{ steps.semantic.outputs.released }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
@@ -39,6 +41,20 @@ jobs:
           git status
 
       - name: Run semantic-release
+        id: semantic
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npx semantic-release
+        shell: bash
+        run: |
+          npx semantic-release
+          if [ -f .semantic-release-success ]; then
+            echo "released=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "released=false" >> "$GITHUB_OUTPUT"
+          fi
+
+  publish-firefox:
+    needs: release
+    if: needs.release.outputs.released == 'true'
+    uses: ./.github/workflows/publish-firefox.yml
+    secrets: inherit

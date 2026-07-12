@@ -23,7 +23,8 @@
     [
       "@semantic-release/exec",
       {
-        "prepareCmd": "node scripts/update-manifest.js <%= nextRelease.version %> && npx web-ext build --source-dir app --overwrite-dest --artifacts-dir dist"
+        "prepareCmd": "node scripts/update-manifest.js <%= nextRelease.version %> && npx web-ext build --source-dir app --overwrite-dest --artifacts-dir dist",
+        "successCmd": "echo released > .semantic-release-success"
       }
     ],
     [
