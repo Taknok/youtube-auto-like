@@ -11,6 +11,37 @@ class MetaLiker {
 	 */
 	constructor(options) {
 		this.options = options;
+		this._isDestroyed = false;
+		this._timers = new Set();
+	}
+
+	_VIDEO = null;
+
+	destroy() {
+		this._isDestroyed = true;
+		for (const timer of this._timers) {
+			clearTimeout(timer);
+		}
+		this._timers.clear();
+		this.IS_STARTED = false;
+		log("destroying liker 0");
+	}
+
+	scheduleTimeout(callback, delay) {
+		if (this._isDestroyed) {
+			log("destroying liker 1")
+			return null;
+		}
+		const timer = setTimeout(() => {
+			this._timers.delete(timer);
+			if (this._isDestroyed) {
+				log("destroying liker 2")
+				return;
+			}
+			callback();
+		}, delay);
+		this._timers.add(timer);
+		return timer;
 	}
 
 	async update_options() {
@@ -34,11 +65,18 @@ class MetaLiker {
 		if (this.VIDEO_SELECTOR === null) {
 			NotImplementedError();
 		}
+		// cache video element to prevent multiple search,
+		//  prevent losing video when buffering
+		if (this._VIDEO !== null) {
+			return this._VIDEO;
+		}
 		for (let video of document.querySelectorAll(this.VIDEO_SELECTOR)) {
 			if (isVisible(video)) {
+				this._VIDEO = video;
 				return video;
 			}
 		}
+		return null;
 	}
 
 	getActionsElements() {
@@ -107,7 +145,7 @@ class MetaLiker {
 
 		if (!box) {
 			log("wait 1s for box");
-			setTimeout(() => this.waitForButtons(callback), 1000 );
+			this.scheduleTimeout(() => this.waitForButtons(callback), 1000);
 		} else {
 			callback();
 		}
@@ -128,7 +166,7 @@ class MetaLiker {
 			}
 			callback();
 		} else {
-			setTimeout(() => this.waitForVideo(callback), 1000);
+			this.scheduleTimeout(() => this.waitForVideo(callback), 1000);
 		}
 	}
 
@@ -156,7 +194,7 @@ class MetaLiker {
 		}
 		else if (this.video().closest(".ad-showing,.ad-interrupting") !== null) {
 			log("waitTimer: ad")
-			setTimeout(() => this.waitTimer(callback), 1000 );
+			this.scheduleTimeout(() => this.waitTimer(callback), 1000);
 		}
 		else if (this.options.like_timer == "random") {
 			let duration = this.video().duration;
@@ -166,7 +204,7 @@ class MetaLiker {
 			if (nowInPercent >= this.randomTimerPercent) {
 				callback();
 			} else {
-				setTimeout(() => this.waitTimer(callback), 1000 );
+				this.scheduleTimeout(() => this.waitTimer(callback), 1000);
 			}
 		}
 		else {
@@ -206,7 +244,7 @@ class MetaLiker {
 			// 	return;
 			// }
 
-			setTimeout(() => this.waitTimer(callback), 1000 );
+			this.scheduleTimeout(() => this.waitTimer(callback), 1000);
 		}
 	}
 
@@ -220,7 +258,7 @@ class MetaLiker {
 			callback();
 			return;
 		}
-		setTimeout(() => this.waitTimerTwo(timer, callback), 1000);
+		this.scheduleTimeout(() => this.waitTimerTwo(timer, callback), 1000);
 	}
 
 	/**

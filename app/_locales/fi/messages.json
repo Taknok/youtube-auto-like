@@ -1,0 +1,65 @@
+{
+	"appName": {
+		"message": "YouTube Auto Like",
+		"description": "Sovelluksen nimi"
+	},
+	"appDesc": {
+		"message": "Tykkää Youtube-videoista ja sisällöntuottajista automaagisesti.",
+		"description": "Sovelluksen kuvaus"
+	},
+	"appDescDetail": {
+		"message": "Tämä sovellus painaa 'Tykkää'-nappia, kun katsot videon kanavalta jonka olet tilannut. Sinun ei tarvitse vaivautua sitä tekemään. Vaihtoehtoisesti voit antaa sen tykätä jokaisesta videosta. Miksi? En tiedä. Tee mitä haluat. Voit halutessasi ehdottaa uusia ominaisuuksia tai osallistua kehitykseen.",
+		"description": "Yksityiskohtainen kuvaus kaupan nettisivulle"
+	},
+	"optLikeSub": {
+		"message": "Tykkää videoista tilatuilta kanavilta"
+	},
+	"optLikeAll": {
+		"message": "Tykkää kaikista videoista"
+	},
+	"optLikeNone": {
+		"message": "Poista käytöstä"
+	},
+	"optLikeInstant": {
+		"message": "Tykkää heti"
+	},
+	"optLikeCustom": {
+		"message": "Mukautettu ajastin"
+	},
+	"optLikePercentage": {
+		"message": "Prosentit"
+	},
+	"optLikeMinutes": {
+		"message": "Minuutit"
+	},
+	"optLikeRandom": {
+		"message": "Satunnainen ajastin"
+	},
+	"optUseList": {
+		"message": "Käytä listaa"
+	},
+	"optBlackList": {
+		"message": "Estetyt kanavat"
+	},
+	"optWhiteList": {
+		"message": "Sallitut kanavat"
+	},
+	"optWhiteListWarning": {
+		"message": "⚠️ Sallittujen kanavien lista on tyhjä, joten mistään ei tykätä"
+	},
+	"linkDonate": {
+		"message": "Lahjoita"
+	},
+	"linkContribute": {
+		"message": "Osallistu kehitykseen"
+	},
+	"mngName": {
+		"message": "Kanavan nimi"
+	},
+	"mngURL": {
+		"message": "Kanavan osoite"
+	},
+	"optNotifyUpdate": {
+		"message": "Ilmoita päivityksistä"
+	}
+}

@@ -13,6 +13,7 @@ var log = () => {}
 // page's variables that will be retreived (10s fail)
 var ytInitialPlayerResponse = undefined;
 var ytInitialData = undefined;
+window.currentLiker = null;
 
 // Add a listener to get the creator
 browser.runtime.onMessage.addListener( function(msg, sender, sendResponse) {
@@ -98,23 +99,25 @@ function isVisible(elem) {
 
 function startLikerProcess(options) {
 	log("Starting liker process");
-	let btn = document.querySelector("ytd-subscribe-button-renderer")
-	var IS_PAPER = btn !== null && isVisible(btn);
+	var IS_PAPER = document.querySelector("ytd-subscribe-button-renderer") !== null;
 	var IS_GRID = document.querySelectorAll("ytd-watch-grid").length !== 0;
 	var IS_SHORT = location.pathname.startsWith("/shorts");
 	window.IS_PAPER = IS_PAPER;
 	window.IS_GRID = IS_GRID;
 	window.IS_SHORT = IS_SHORT;
+
 	let liker = null;
-	if (IS_GRID) {
-		log("grid liker init");
-		liker = new GridLiker(options);
-	} else if (IS_PAPER) {
-		log("paper liker init");
-		liker = new PaperLiker(options);
-	} else if (IS_SHORT) {
+	if (IS_SHORT) {
 		log("short liker init");
 		liker = new ShortLiker(options);
+	} else {
+		if (IS_GRID) {
+			log("grid liker init");
+			liker = new GridLiker(options);
+		} else if (IS_PAPER) {
+			log("paper liker init");
+			liker = new PaperLiker(options);
+		}
 	}
 
 	if (IS_CLASSIC) {
@@ -123,6 +126,8 @@ function startLikerProcess(options) {
 	} else {
 		log("YAL: Other youtube are not supported");
 	}
+
+	window.currentLiker = liker;
 }
 
 function getVideoId(url) {
@@ -178,11 +183,14 @@ optionManager.get().then((options) => {
 
 	document.addEventListener("yt-navigate-finish", function (event) {
 		log("yt-navigate-finish event detected");
+		if (jsInitChecktimer !== null) clearInterval(jsInitChecktimer);
+		if (window.currentLiker) {
+			window.currentLiker.destroy();
+			window.currentLiker = null;
+		}
 		if (isVideoPage()) {
-			if (jsInitChecktimer !== null) clearInterval(jsInitChecktimer);
-			window.returnLikerProcessSet = false;
 			setEventListeners();
-			} else {
+		} else {
 			log("Not a video page");
 		}
 	});
