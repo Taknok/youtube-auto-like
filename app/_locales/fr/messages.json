@@ -29,10 +29,10 @@
 	"optLikePercentage": {
 		"message": "Pourcentage"
 	},
-	"optLikeMinutes" :{
+	"optLikeMinutes" : {
 		"message": "Minutes"
 	},
-	"optLikeRandom" :{
+	"optLikeRandom" : {
 		"message": "Minuteur aléatoire"
 	},
 	"optUseList": {
@@ -44,13 +44,26 @@
 	"optWhiteList": {
 		"message": "Mode liste blanche"
 	},
+	"optWhiteListWarning": {
+		"message": "⚠️ la liste est vide, rien ne sera liké"
+	},
+	"optMngList": {
+		"message": "Gérer la liste"
+	},
+	"optAddChannel": {
+		"message": "Ajouter une chaîne"
+	},
+	"optRemoveChannel": {
+		"message": "Supprimer une chaîne"
+	},
+	"optNotifyUpdate": {
+		"message": "Informer de la mise à jour du plugin"
+	},
 	"linkDonate": {
-		"message": "Soutenir",
-		"description" : "Donner de l'argent pour aider le createur du plugin"
+		"message": "Soutenir"
 	},
 	"linkContribute": {
-		"message": "Contribuer",
-		"description" : "Lien pour contribuer au plugin"
+		"message": "Contribuer"
 	},
 	"mngName": {
 		"message": "Nom de la chaîne"
@@ -58,7 +71,10 @@
 	"mngURL": {
 		"message": "URL de la chaîne"
 	},
-	"optNotifyUpdate": {
-		"message": "Informer de la mise à jour du plugin"
+	"mngExportChannels": {
+		"message": "Export channels"
+	},
+	"mngImportChannels": {
+		"message": "Import channels"
 	}
 }

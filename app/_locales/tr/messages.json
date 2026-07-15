@@ -47,6 +47,18 @@
 	"optWhiteListWarning": {
 		"message": "⚠️ liste boş, hiçbir şey beğenilmeyecek"
 	},
+	"optMngList": {
+		"message": "Manage list"
+	},
+	"optAddChannel": {
+		"message": "Add channel"
+	},
+	"optRemoveChannel": {
+		"message": "Remove channel"
+	},
+	"optNotifyUpdate": {
+		"message": "Notify Update"
+	},
 	"linkDonate": {
 		"message": "Bağış"
 	},
@@ -58,5 +70,11 @@
 	},
 	"mngURL": {
 		"message": "Kanal URL"
+	},
+	"mngExportChannels": {
+		"message": "Export channels"
+	},
+	"mngImportChannels": {
+		"message": "Import channels"
 	}
 }

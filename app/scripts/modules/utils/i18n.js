@@ -8,35 +8,57 @@ class I18n {
 		this.msg = syntax || {
 			start: '__MSG_',
 			end: '__'
+		};
+		this.attributeNames = ['value'];
+	}
+
+	replacePlaceholders(text) {
+		let result = text;
+		while (result.includes(this.msg.start)) {
+			let keyStart = result.indexOf(this.msg.start) + this.msg.start.length,
+				key = result.substring(keyStart, result.indexOf(this.msg.end, keyStart)),
+				placeholder = `${this.msg.start}${key}${this.msg.end}`,
+				localized = chrome.i18n.getMessage(key);
+
+			result = result.replace(new RegExp(placeholder, 'g'), localized);
 		}
+		return result;
 	}
 
 	/*
 	 * Finds and replaces placeholder strings with localized text
 	 */
 	populateText() {
-		let node,
-				walker = document.createTreeWalker(
-										document.body,
-										// Only look at text nodes
-										NodeFilter.SHOW_TEXT,
-										// Ignore script and style tags
-										(node) => 'script style'.includes(node.tagName) ? NodeFilter.FILTER_SKIP : NodeFilter.FILTER_ACCEPT,
-										false
-									)
+		let node;
+		let walker = document.createTreeWalker(
+			document.body,
+			// Visit text and element nodes
+			NodeFilter.SHOW_TEXT | NodeFilter.SHOW_ELEMENT,
+			// Ignore script and style tags
+			(node) => 'script style'.includes(node.tagName) ? NodeFilter.FILTER_SKIP : NodeFilter.FILTER_ACCEPT,
+			false
+		);
 
-		// Loop through all text nodes
-		while( node = walker.nextNode() ) {
-			// We only care about this text if it contains placeholder syntax
-			while( node.textContent.includes(this.msg.start) ) {
-				let text = node.textContent,
-						keyStart = text.indexOf(this.msg.start) + this.msg.start.length,
-						key = text.substring( keyStart, text.indexOf(this.msg.end, keyStart) ),
-						placeholder = `${this.msg.start}${key}${this.msg.end}`,
-						localized = chrome.i18n.getMessage(key)
+		while ((node = walker.nextNode())) {
+			if (node.nodeType === Node.TEXT_NODE) {
+				let text = node.textContent;
+				let localized = this.replacePlaceholders(text);
+				if (localized !== text) {
+					node.textContent = localized;
+				}
+			} else if (node.nodeType === Node.ELEMENT_NODE) {
+				for (const attributeName of this.attributeNames) {
+					if (!node.hasAttribute(attributeName)) continue;
 
-				// Replace all instances of this placeholder with the localized text
-				node.textContent = text.replace(new RegExp(placeholder, 'g'), localized)
+					let attributeValue = node.getAttribute(attributeName);
+					let localized = this.replacePlaceholders(attributeValue);
+					if (localized !== attributeValue) {
+						node.setAttribute(attributeName, localized);
+						if (attributeName === 'value' && 'value' in node) {
+							node.value = localized;
+						}
+					}
+				}
 			}
 		}
 	}

@@ -29,16 +29,52 @@
 	"optLikePercentage": {
 		"message": "На відсотку"
 	},
-	"optLikeMinutes" :{
+	"optLikeMinutes" : {
 		"message": "На хвилині"
 	},
-	"optLikeRandom" :{
+	"optLikeRandom" : {
 		"message": "Обирати випадково"
+	},
+	"optUseList": {
+		"message": "Use list"
+	},
+	"optBlackList": {
+		"message": "Block list mode"
+	},
+	"optWhiteList": {
+		"message": "Allow list mode"
+	},
+	"optWhiteListWarning": {
+		"message": "⚠️ list is empty, nothing will be liked"
+	},
+	"optMngList": {
+		"message": "Manage list"
+	},
+	"optAddChannel": {
+		"message": "Add channel"
+	},
+	"optRemoveChannel": {
+		"message": "Remove channel"
+	},
+	"optNotifyUpdate": {
+		"message": "Notify Update"
 	},
 	"linkDonate": {
 		"message": "Підтримай грошима"
 	},
 	"linkContribute": {
 		"message": "Візьми участь"
+	},
+	"mngName": {
+		"message": "Channel Name"
+	},
+	"mngURL": {
+		"message": "Channel URL"
+	},
+	"mngExportChannels": {
+		"message": "Export channels"
+	},
+	"mngImportChannels": {
+		"message": "Import channels"
 	}
 }

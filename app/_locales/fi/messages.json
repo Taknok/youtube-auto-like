@@ -47,6 +47,18 @@
 	"optWhiteListWarning": {
 		"message": "⚠️ Sallittujen kanavien lista on tyhjä, joten mistään ei tykätä"
 	},
+	"optMngList": {
+		"message": "Muokkaa listaa"
+	},
+	"optAddChannel": {
+		"message": "Lisää kanava"
+	},
+	"optRemoveChannel": {
+		"message": "Poista kanava"
+	},
+	"optNotifyUpdate": {
+		"message": "Ilmoita päivityksistä"
+	},
 	"linkDonate": {
 		"message": "Lahjoita"
 	},
@@ -59,7 +71,10 @@
 	"mngURL": {
 		"message": "Kanavan osoite"
 	},
-	"optNotifyUpdate": {
-		"message": "Ilmoita päivityksistä"
+	"mngExportChannels": {
+		"message": "Vie kanavalista"
+	},
+	"mngImportChannels": {
+		"message": "Tuo kanavalista"
 	}
 }
