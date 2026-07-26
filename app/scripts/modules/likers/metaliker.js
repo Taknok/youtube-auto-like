@@ -219,7 +219,7 @@ class MetaLiker {
 				log("waitTimer: random");
 				percentAtLike = this.randomTimerPercent;
 			}
-			if (this.options.like_timer === "percentage" && !this.isLive()) {
+			if (this.options.percentage_timer && !this.isLive()) {
 				log("waitTimer: percent");
 				percentAtLike = this.options.percentage_value;
 			}
