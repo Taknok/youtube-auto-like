@@ -47,6 +47,18 @@
 	"optWhiteListWarning": {
 		"message": "⚠️ Список пуст, вам ничего не нравится"
 	},
+	"optMngList": {
+		"message": "Manage list"
+	},
+	"optAddChannel": {
+		"message": "Add channel"
+	},
+	"optRemoveChannel": {
+		"message": "Remove channel"
+	},
+	"optNotifyUpdate": {
+		"message": "Уведомлять o6 обновлении"
+	},
 	"linkDonate": {
 		"message": "Донат"
 	},
@@ -59,7 +71,10 @@
 	"mngURL": {
 		"message": "URL канала"
 	},
-	"optNotifyUpdate": {
-		"message": "Уведомлять об обновлении"
-	}
+	"mngExportChannels": {
+		"message": "Export channels"
+	},
+	"mngImportChannels": {
+		"message": "Import channels"
+	}	
 }

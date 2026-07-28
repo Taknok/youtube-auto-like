@@ -47,6 +47,18 @@
 	"optWhiteListWarning": {
 		"message": "⚠️ list is empty, nothing will be liked"
 	},
+	"optMngList": {
+		"message": "Manage list"
+	},
+	"optAddChannel": {
+		"message": "Add channel"
+	},
+	"optRemoveChannel": {
+		"message": "Remove channel"
+	},
+	"optNotifyUpdate": {
+		"message": "Notify Update"
+	},
 	"linkDonate": {
 		"message": "Donate"
 	},
@@ -59,7 +71,10 @@
 	"mngURL": {
 		"message": "Channel URL"
 	},
-	"optNotifyUpdate": {
-		"message": "Notify Update"
+	"mngExportChannels": {
+		"message": "Export channels"
+	},
+	"mngImportChannels": {
+		"message": "Import channels"
 	}
 }

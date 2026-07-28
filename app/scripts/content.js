@@ -100,10 +100,8 @@ function isVisible(elem) {
 function startLikerProcess(options) {
 	log("Starting liker process");
 	var IS_PAPER = document.querySelector("ytd-subscribe-button-renderer") !== null;
-	var IS_GRID = document.querySelectorAll("ytd-watch-grid").length !== 0;
 	var IS_SHORT = location.pathname.startsWith("/shorts");
 	window.IS_PAPER = IS_PAPER;
-	window.IS_GRID = IS_GRID;
 	window.IS_SHORT = IS_SHORT;
 
 	let liker = null;
@@ -111,10 +109,7 @@ function startLikerProcess(options) {
 		log("short liker init");
 		liker = new ShortLiker(options);
 	} else {
-		if (IS_GRID) {
-			log("grid liker init");
-			liker = new GridLiker(options);
-		} else if (IS_PAPER) {
+		if (IS_PAPER) {
 			log("paper liker init");
 			liker = new PaperLiker(options);
 		}

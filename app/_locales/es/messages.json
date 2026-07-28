@@ -3,17 +3,13 @@
 		"message": "YouTube Auto Like",
 		"description": "El nombre de la applicacion"
 	},
-	"appNamePart2": {
-	"message": "Auto Like",
-	"description": "Nombre de la applicacion despues de 'YouTube'"
-	},
 	"appDesc": {
 		"message": "Este plugin like automaticamente los videos de YouTube.",
 		"description": "La descripcion de la application"
 	},
 	"appDescDetail": {
-	"message": "Este plugin like automáticamente los vídeos de YouTube. Puedes elegir de utilizar el plugin en todos los vídeos o unicamente en los vídeos suscribidos,  tambien puedes desactivar el plugin. Puedes poner un dislike en un vídeo, despues el plugin no pondra like automáticamente. Ninguna conexión necesitada. Puedes señalar problemas, proponer ideos y contribuir.",
-	"description": "Completa descripcion para la pagina web"
+		"message": "Este plugin like automáticamente los vídeos de YouTube. Puedes elegir de utilizar el plugin en todos los vídeos o unicamente en los vídeos suscribidos,  tambien puedes desactivar el plugin. Puedes poner un dislike en un vídeo, despues el plugin no pondra like automáticamente. Ninguna conexión necesitada. Puedes señalar problemas, proponer ideos y contribuir.",
+		"description": "Completa descripcion para la pagina web"
 	},
 	"optLikeSub": {
 		"message": "Like los videos de los canales suscritos"
@@ -33,18 +29,52 @@
 	"optLikePercentage": {
 		"message": "Porcentaje"
 	},
-	"optLikeMinutes" :{
+	"optLikeMinutes" : {
 		"message": "Minutos"
 	},
-	"optLikeRandom" :{
+	"optLikeRandom" : {
 		"message": "Random timer"
 	},
+	"optUseList": {
+		"message": "Use list"
+	},
+	"optBlackList": {
+		"message": "Block list mode"
+	},
+	"optWhiteList": {
+		"message": "Allow list mode"
+	},
+	"optWhiteListWarning": {
+		"message": "⚠️ list is empty, nothing will be liked"
+	},
+	"optMngList": {
+		"message": "Manage list"
+	},
+	"optAddChannel": {
+		"message": "Add channel"
+	},
+	"optRemoveChannel": {
+		"message": "Remove channel"
+	},
+	"optNotifyUpdate": {
+		"message": "Notify Update"
+	},
 	"linkDonate": {
-	"message": "Dar",
-	"description": "Vinculo para ayudar el creador del plugin"
+		"message": "Dar"
 	},
 	"linkContribute": {
-	"message": "Contribuir",
-	"description" : "Vinculo para proponer cambios"
+		"message": "Contribuir"
+	},
+	"mngName": {
+		"message": "Channel Name"
+	},
+	"mngURL": {
+		"message": "Channel URL"
+	},
+	"mngExportChannels": {
+		"message": "Export channels"
+	},
+	"mngImportChannels": {
+		"message": "Import channels"
 	}
 }

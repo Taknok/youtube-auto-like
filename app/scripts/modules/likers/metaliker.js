@@ -52,8 +52,9 @@ class MetaLiker {
 
 	VIDEO_SELECTOR = null;
 	ACTION_ELEMENTS_SELECTOR = null;
+	LIKE_DATA_SELECTOR = null;
 	LIKE_SELECTOR = null;
-	DISLIKE_SELECTOR = null;
+	DISLIKE_DATA_SELECTOR = null;
 	LIVE_SELECTOR = null;
 
 	/**
@@ -93,12 +94,12 @@ class MetaLiker {
 	getLikeDislikeElements(actionsElements) {
 		let likeElement, dislikeElement;
 
-		if (this.LIKE_SELECTOR === null || this.DISLIKE_SELECTOR === null) {
+		if (this.LIKE_DATA_SELECTOR === null || this.DISLIKE_DATA_SELECTOR === null) {
 			NotImplementedError
 		}
 		
-		likeElement = actionsElements.querySelector(this.LIKE_SELECTOR);
-		dislikeElement = actionsElements.querySelector(this.DISLIKE_SELECTOR);
+		likeElement = actionsElements.querySelector(this.LIKE_DATA_SELECTOR);
+		dislikeElement = actionsElements.querySelector(this.DISLIKE_DATA_SELECTOR);
 
 		return [likeElement, dislikeElement];
 	}
@@ -110,10 +111,6 @@ class MetaLiker {
 		return document.querySelector(this.LIVE_SELECTOR);
 	}
 
-	isVideoRated(like, dislike) {
-		NotImplementedError();
-	}
-
 	/*
 	 * Another tough one
 	 * @return {Boolean} True if the user is subscribed to
@@ -123,14 +120,35 @@ class MetaLiker {
 		NotImplementedError();
 	}
 
-	getButtons() {
-		let box = this.getActionsElements();
-		let [likeElement, dislikeElement] = this.getLikeDislikeElements(box);
-		if (likeElement === null || dislikeElement === null) {
-			log("Cannot find buttons");
+	async waitFor(predicate) {
+		let value;
+
+		while (!(value = predicate())) {
+			await new Promise(resolve => requestAnimationFrame(resolve));
 		}
+
+		return value;
+	}
+
+	async getButtons() {
+		const box = this.getActionsElements();
+
+		const [likeElement, dislikeElement] = await this.waitFor(() => {
+			const [like, dislike] = this.getLikeDislikeElements(box);
+
+			if (!like.wrappedJSObject?.data || !dislike.wrappedJSObject?.data) {
+				return null;
+			}
+
+			return [like, dislike];
+		});
+
 		log("got buttons");
 		return [likeElement, dislikeElement];
+	}
+
+	isVideoRated(like, dislike) {
+		return like.wrappedJSObject.data.isToggled || dislike.wrappedJSObject.data.isToggled;
 	}
 
 	/**
@@ -139,15 +157,10 @@ class MetaLiker {
 	 * @param {function} callback The function to execute after the buttons
 	 *     have loaded
 	 */
-	waitForButtons(callback) {
-		// wait button box load
-		let box = this.getActionsElements();
-
-		if (!box) {
+	async waitForButtons() {
+		while (!(this.getActionsElements())) {
 			log("wait 1s for box");
-			this.scheduleTimeout(() => this.waitForButtons(callback), 1000);
-		} else {
-			callback();
+			await new Promise(resolve => this.scheduleTimeout(resolve, 1000));
 		}
 	}
 
@@ -156,17 +169,17 @@ class MetaLiker {
 	* @param  {function} callback The function to execute once the video has
 	*     loaded.
 	*/
-	waitForVideo(callback) {
-		if (this.video()) {
-			log("Get Video:", this.video());
-			if (this.isLive()) {
-				log("Video is live");
-				this.liveStartedAt = this.video().currentTime;
-				log("Start watching live at", this.liveStartedAt);
-			}
-			callback();
-		} else {
-			this.scheduleTimeout(() => this.waitForVideo(callback), 1000);
+	async waitForVideo() {
+		while (!this.video()) {
+			await new Promise(resolve => this.scheduleTimeout(resolve, 1000));
+		}
+		
+		log("Get Video:", this.video());
+
+		if (this.isLive()) {
+			log("Video is live");
+			this.liveStartedAt = this.video().currentTime;
+			log("Start watching live at", this.liveStartedAt);
 		}
 	}
 
@@ -182,116 +195,79 @@ class MetaLiker {
 
 	/**
 	 * Wait the number of minutes or % specified by user in the plugin option
-	 * @param {function} callback The function to execute at the end of 
-	 *     the timer
 	 */
-	waitTimer(callback) {
-		// if Instant like, direct return to like
-		if (this.options.like_timer == "instant") {
-			log("waitTimer: instant")
-			callback();
-			return;
-		}
-		else if (this.video().closest(".ad-showing,.ad-interrupting") !== null) {
-			log("waitTimer: ad")
-			this.scheduleTimeout(() => this.waitTimer(callback), 1000);
-		}
-		else if (this.options.like_timer == "random") {
-			let duration = this.video().duration;
-
-			let nowInPercent = this.video().currentTime / duration * 100;
-
-			if (nowInPercent >= this.randomTimerPercent) {
-				callback();
-			} else {
-				this.scheduleTimeout(() => this.waitTimer(callback), 1000);
-			}
-		}
-		else {
-			let duration = this.video().duration;
-			let currentT = this.isLive() ? (this.video().currentTime - this.liveStartedAt) : this.video().currentTime;
-			let timeAtLikePercent = Infinity;
-			let timeAtLikeMinute = Infinity;
-			let timeAtLike = null;
-			// cannot like a % of live video, so we ignore the percentage timer if the video is live
-			if (this.options.percentage_timer && !this.isLive()) {
-				log("waitTimer: percent")
-				let percentageAtLike = this.options.percentage_value;
-				timeAtLikePercent = duration * percentageAtLike / 100;
-			}
-
-			if (this.options.minute_timer) {
-				log("waitTimer: minute")
-				timeAtLikeMinute = this.options.minute_value * 60;
-			}
-			timeAtLike = Math.min(timeAtLikePercent, timeAtLikeMinute);
-
-			// change timeAtLike if vid shorter than time set by user
-			if (duration <= timeAtLike) {
-				timeAtLike = duration - 2; // like 2s before the end of the video to prevent replay to reset the current time
-			}
-			log(currentT, duration, timeAtLike)
-
-			if (currentT >= timeAtLike) {
-				callback();
+	async waitTimer() {
+		while (true) {
+			// Instant like
+			if (this.options.like_timer === "instant") {
+				log("waitTimer: instant");
 				return;
 			}
 
-			// // if both are disable event if custom timer is set
-			// if (!this.options.minute_timer && !this.options.percentage_timer) {
-			// 	// instant like
-			// 	callback();
-			// 	return;
-			// }
+			// Wait until ads are over
+			if (this.video().closest(".ad-showing,.ad-interrupting") !== null) {
+				log("waitTimer: ad");
+				await new Promise(resolve => this.scheduleTimeout(resolve, 1000));
+				continue;
+			}
 
-			this.scheduleTimeout(() => this.waitTimer(callback), 1000);
+			let percentAtLike = Infinity;
+			let timeAtLikePercent = Infinity;
+			let timeAtLikeMinute = Infinity;
+			
+			if (this.options.like_timer === "random") {
+				log("waitTimer: random");
+				percentAtLike = this.randomTimerPercent;
+			}
+			if (this.options.percentage_timer && !this.isLive()) {
+				log("waitTimer: percent");
+				percentAtLike = this.options.percentage_value;
+			}
+			if (this.options.minute_timer) {
+				log("waitTimer: minute");
+				timeAtLikeMinute = this.options.minute_value * 60;
+			}
+
+			const duration = this.video().duration;
+			const currentT = this.isLive()
+				? this.video().currentTime - this.liveStartedAt
+				: this.video().currentTime;
+
+			timeAtLikePercent = duration * percentAtLike / 100;
+
+			let timeAtLike = Math.min(timeAtLikePercent, timeAtLikeMinute);
+
+			// If the video is shorter than the configured delay,
+			// like it 2 seconds before the end.
+			if (duration <= timeAtLike) {
+				timeAtLike = duration - 2;
+			}
+
+			log(currentT, duration, timeAtLike);
+
+			if (currentT >= timeAtLike) {
+				return;
+			}
+
+			await new Promise(resolve => this.scheduleTimeout(resolve, 1000));
 		}
-	}
-
-	/**
-	 * Wait the video time indicator is greater the timer
-	 * @param {int} timer The time in second to wait
-	 * @param {function} callback The function to execute when timer is over
-	 */
-	waitTimerTwo(timer, callback) {
-		if (this.video().currentTime >= timer) {
-			callback();
-			return;
-		}
-		this.scheduleTimeout(() => this.waitTimerTwo(timer, callback), 1000);
-	}
-
-	/**
-	 * Check timer not greater than video length and wait the video 
-	 * time indicator to be greater than the seconds requested
-	 * @param {int} timer The time in second to wait
-	 * @param {function} callback The function to execute when timer is over
-	 */
-	startTimer(timer, callback) {
-		let duration = this.video().duration;
-		// change timer if vid shorter than time requested
-		if (duration < timer) {
-			timer = duration;
-		}
-		this.waitTimerTwo(timer, callback)
-
-	}
+}
 
 	/**
 	 * Take a wild guess
 	 * @return {Boolean} True if the like or dislike button is active
 	 */
-	isVideoRatedMeta() {
+	async isVideoRatedMeta() {
 		log("checking if video is rated");
-		let [like, dislike] = this.getButtons();
+		let [like, dislike] = await this.getButtons();
 		log([like, dislike]);
 		let isRated = this.isVideoRated(like, dislike);
 		log("is rated: ", isRated);
 		return isRated;
 	}
 
-	shouldLike() {
-		let rated = this.isVideoRatedMeta();
+	async shouldLike() {
+		let rated = await this.isVideoRatedMeta();
 		if (rated) {
 			log("Not like: already liked video");
 			return false;
@@ -347,7 +323,12 @@ class MetaLiker {
 	 * Clickity click the button
 	 */
 	attemptLike() {
-		this.getButtons()[0].click();
+		if (this.LIKE_SELECTOR === null) {
+			NotImplementedError();
+		}
+		let box = this.getActionsElements();
+		let btn = box.querySelector(this.LIKE_SELECTOR);
+		btn.click();
 	}
 
 	/**
@@ -403,43 +384,43 @@ class MetaLiker {
 
 		await this.update_options();
 
-		this.waitForVideo(() => {
-			this.waitForButtons(() => {
-				/*
-				If the video is already liked/disliked
-				or the user isn't subscribed to this channel,
-				then we don't need to do anything.
-				 */
-				if ( !this.shouldLike() ) {
-					log("not liked check 1");
-					this.finish();
-					return;
-				}
-				/*
-				Else do the stuff
-				*/
-				// Define a random timer if selected
-				if (this.options.like_timer == "random") {
-					this.randomTimerPercent = this.randomIntFromInterval(0, 99);
-				}
+		await this.waitForVideo();
+		await this.waitForButtons();
+		
+
+		/*
+		If the video is already liked/disliked
+		or the user isn't subscribed to this channel,
+		then we don't need to do anything.
+			*/
+		if ( !await this.shouldLike() ) {
+			log("not liked check 1");
+			this.finish();
+			return;
+		}
+		/*
+		Else do the stuff
+		*/
+		// Define a random timer if selected
+		if (this.options.like_timer == "random") {
+			this.randomTimerPercent = this.randomIntFromInterval(0, 99);
+		}
 				
-				this.waitTimer(() => {
-					/*
-					Maybe the use did an action while we was waiting, so check again
-					*/
-					if ( !this.shouldLike() ) {
-						log("not liked check 2");
-						this.finish();
-						return;
-					}
-					this.attemptLike();
-					log('liked');
-					this.options.counter += 1;
-					optionManager.set(this.options).then(() => {
-						this.finish();							
-					});
-				});
-			});
+		await this.waitTimer();
+
+		/*
+		Maybe the use did an action while we was waiting, so check again
+		*/
+		if ( !await this.shouldLike() ) {
+			log("not liked check 2");
+			this.finish();
+			return;
+		}
+		this.attemptLike();
+		log('liked');
+		this.options.counter += 1;
+		optionManager.set(this.options).then(() => {
+			this.finish();							
 		});
 	}
 }

@@ -47,6 +47,18 @@
 	"optWhiteListWarning": {
 		"message": "⚠️ リストが空の場合、高評価はされません"
 	},
+	"optMngList": {
+		"message": "Manage list"
+	},
+	"optAddChannel": {
+		"message": "Add channel"
+	},
+	"optRemoveChannel": {
+		"message": "Remove channel"
+	},
+	"optNotifyUpdate": {
+		"message": "Notify Update"
+	},
 	"linkDonate": {
 		"message": "寄付!"
 	},
@@ -58,5 +70,11 @@
 	},
 	"mngURL": {
 		"message": "チャンネルのURL"
+	},
+	"mngExportChannels": {
+		"message": "Export channels"
+	},
+	"mngImportChannels": {
+		"message": "Import channels"
 	}
 }

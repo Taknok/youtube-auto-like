@@ -16,6 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       released: ${{ steps.semantic.outputs.released }}
+      release_sha: ${{ steps.semantic.outputs.release_sha }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
@@ -47,6 +48,7 @@ jobs:
         shell: bash
         run: |
           npx semantic-release
+          echo "release_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
           if [ -f .semantic-release-success ]; then
             echo "released=true" >> "$GITHUB_OUTPUT"
           else
@@ -57,4 +59,12 @@ jobs:
     needs: release
     if: needs.release.outputs.released == 'true'
     uses: ./.github/workflows/publish-firefox.yml
+    with:
+      ref: ${{ needs.release.outputs.release_sha }}
+    secrets: inherit
+
+  sync-dev:
+    needs: release
+    if: needs.release.outputs.released == 'true'
+    uses: ./.github/workflows/sync-dev.yml
     secrets: inherit

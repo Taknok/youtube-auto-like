@@ -37,7 +37,6 @@
         "scripts/modules/utils/miscellaneous.js",
         "scripts/modules/likers/metaliker.js",
         "scripts/modules/likers/liker-paper.js",
-        "scripts/modules/likers/liker-grid.js",
         "scripts/modules/likers/liker-short.js",
         "scripts/content.js"
       ],
