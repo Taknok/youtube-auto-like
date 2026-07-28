@@ -62,3 +62,9 @@ jobs:
     with:
       ref: ${{ needs.release.outputs.release_sha }}
     secrets: inherit
+
+  sync-dev:
+    needs: release
+    if: needs.release.outputs.released == 'true'
+    uses: ./.github/workflows/sync-dev.yml
+    secrets: inherit
