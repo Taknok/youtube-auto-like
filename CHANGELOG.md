@@ -1,3 +1,5 @@
+## [4.3.0](https://github.com/Taknok/youtube-auto-like/compare/4.2.4...4.3.0) (2026-07-28)
+
 ## [4.2.4](https://github.com/Taknok/youtube-auto-like/compare/4.2.3...4.2.4) (2026-07-14)
 
 ## [4.2.3](https://github.com/Taknok/youtube-auto-like/compare/4.2.2...4.2.3) (2026-07-12)
