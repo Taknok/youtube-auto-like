@@ -4,7 +4,7 @@
 		"description": "アプリの名前"
 	},
 	"appDesc": {
-		"message":"自動的に任意のYouTube動画を高評価ボタンを押します。",
+		"message": "自動的に任意のYouTube動画を高評価ボタンを押します。",
 		"description": "アプリの説明"
 	},
 	"appDescDetail": {
@@ -76,5 +76,11 @@
 	},
 	"mngImportChannels": {
 		"message": "Import channels"
+	},
+	"optLikeNormalVideos": {
+		"message": "通常動画をいいねする"
+	},
+	"optLikeShorts": {
+		"message": "ショートをいいねする"
 	}
 }

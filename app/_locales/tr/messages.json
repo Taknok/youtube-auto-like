@@ -76,5 +76,11 @@
 	},
 	"mngImportChannels": {
 		"message": "Import channels"
+	},
+	"optLikeNormalVideos": {
+		"message": "Normal videoları Beğen"
+	},
+	"optLikeShorts": {
+		"message": "Shorts'u Beğen"
 	}
 }

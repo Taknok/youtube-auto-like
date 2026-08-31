@@ -32,7 +32,7 @@
 	"optLikeMinutes": {
 		"message": "Minuter"
 	},
-	"optLikeRandom" : {
+	"optLikeRandom": {
 		"message": "Random timer"
 	},
 	"optUseList": {
@@ -76,5 +76,11 @@
 	},
 	"mngImportChannels": {
 		"message": "Import channels"
+	},
+	"optLikeNormalVideos": {
+		"message": "Gilla normala videor"
+	},
+	"optLikeShorts": {
+		"message": "Gilla Shorts"
 	}
 }

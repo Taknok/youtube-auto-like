@@ -104,6 +104,15 @@ function startLikerProcess(options) {
 	window.IS_PAPER = IS_PAPER;
 	window.IS_SHORT = IS_SHORT;
 
+	if (IS_SHORT && !options.like_short) {
+		log("Shorts are disabled by user option");
+		return;
+	}
+	if (!IS_SHORT && !options.like_normal) {
+		log("Normal videos are disabled by user option");
+		return;
+	}
+
 	let liker = null;
 	if (IS_SHORT) {
 		log("short liker init");

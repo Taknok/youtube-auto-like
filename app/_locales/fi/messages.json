@@ -76,5 +76,11 @@
 	},
 	"mngImportChannels": {
 		"message": "Tuo kanavalista"
+	},
+	"optLikeNormalVideos": {
+		"message": "Pidä normaaleista videoista"
+	},
+	"optLikeShorts": {
+		"message": "Pidä Shortsista"
 	}
 }

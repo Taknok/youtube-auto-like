@@ -71,10 +71,16 @@
 	"mngURL": {
 		"message": "Kanal-URL"
 	},
-		"mngExportChannels": {
+	"mngExportChannels": {
 		"message": "Export channels"
 	},
 	"mngImportChannels": {
 		"message": "Import channels"
+	},
+	"optLikeNormalVideos": {
+		"message": "Normale Videos liken"
+	},
+	"optLikeShorts": {
+		"message": "Shorts liken"
 	}
 }

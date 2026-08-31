@@ -1,4 +1,4 @@
-{
+﻿{
 	"appName": {
 		"message": "YouTube Auto Like",
 		"description": "Name of the application"
@@ -76,5 +76,11 @@
 	},
 	"mngImportChannels": {
 		"message": "Import channels"
+	},
+	"optLikeShorts": {
+		"message": "Lubię Shorty"
+	},
+	"optLikeNormalVideos": {
+		"message": "Lubię normalne filmy"
 	}
 }

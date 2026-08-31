@@ -20,7 +20,7 @@
 	"optLikeNone": {
 		"message": "Désactiver"
 	},
-	"optLikeInstant" : {
+	"optLikeInstant": {
 		"message": "Liker instantanément"
 	},
 	"optLikeCustom": {
@@ -29,10 +29,10 @@
 	"optLikePercentage": {
 		"message": "Pourcentage"
 	},
-	"optLikeMinutes" : {
+	"optLikeMinutes": {
 		"message": "Minutes"
 	},
-	"optLikeRandom" : {
+	"optLikeRandom": {
 		"message": "Minuteur aléatoire"
 	},
 	"optUseList": {
@@ -55,6 +55,12 @@
 	},
 	"optRemoveChannel": {
 		"message": "Supprimer une chaîne"
+	},
+	"optLikeShorts": {
+		"message": "Aimer les Shorts"
+	},
+	"optLikeNormalVideos": {
+		"message": "Aimer les vidéos normales"
 	},
 	"optNotifyUpdate": {
 		"message": "Informer de la mise à jour du plugin"

@@ -20,7 +20,7 @@
 	"optLikeNone": {
 		"message": "Desactivar"
 	},
-	"optLikeInstant" : {
+	"optLikeInstant": {
 		"message": "Inmediato Like"
 	},
 	"optLikeCustom": {
@@ -29,10 +29,10 @@
 	"optLikePercentage": {
 		"message": "Porcentaje"
 	},
-	"optLikeMinutes" : {
+	"optLikeMinutes": {
 		"message": "Minutos"
 	},
-	"optLikeRandom" : {
+	"optLikeRandom": {
 		"message": "Random timer"
 	},
 	"optUseList": {
@@ -76,5 +76,11 @@
 	},
 	"mngImportChannels": {
 		"message": "Import channels"
+	},
+	"optLikeNormalVideos": {
+		"message": "Me gustan los videos normales"
+	},
+	"optLikeShorts": {
+		"message": "Me gustan los Shorts"
 	}
 }

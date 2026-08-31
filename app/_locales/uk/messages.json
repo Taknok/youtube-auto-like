@@ -20,7 +20,7 @@
 	"optLikeNone": {
 		"message": "Вимкнути"
 	},
-	"optLikeInstant" : {
+	"optLikeInstant": {
 		"message": "Вподобувати негайно"
 	},
 	"optLikeCustom": {
@@ -29,10 +29,10 @@
 	"optLikePercentage": {
 		"message": "На відсотку"
 	},
-	"optLikeMinutes" : {
+	"optLikeMinutes": {
 		"message": "На хвилині"
 	},
-	"optLikeRandom" : {
+	"optLikeRandom": {
 		"message": "Обирати випадково"
 	},
 	"optUseList": {
@@ -76,5 +76,11 @@
 	},
 	"mngImportChannels": {
 		"message": "Import channels"
+	},
+	"optLikeNormalVideos": {
+		"message": "Лайкати звичайні відео"
+	},
+	"optLikeShorts": {
+		"message": "Лайкати Shorts"
 	}
 }

@@ -76,5 +76,11 @@
 	},
 	"mngImportChannels": {
 		"message": "Import channels"
-	}	
+	},
+	"optLikeNormalVideos": {
+		"message": "Лайкать обычные видео"
+	},
+	"optLikeShorts": {
+		"message": "Лайкать Shorts"
+	}
 }

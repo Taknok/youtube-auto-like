@@ -219,6 +219,9 @@ docReady(function() {
 		document.querySelector(`input[name="like_timer"][value="${options.like_timer}"]`).click();
 		document.querySelector(`input[name="type_list"][value="${options.type_list}"]`).setAttribute("checked", "checked");
 
+		document.getElementById("like_short").checked = (options.like_short !== false);
+		document.getElementById("like_normal").checked = (options.like_normal !== false);
+
 		document.getElementById("percentage-value").value = options.percentage_value;
 		if (options.percentage_timer) {
 			document.getElementById("percentage-like").setAttribute("checked", "checked");

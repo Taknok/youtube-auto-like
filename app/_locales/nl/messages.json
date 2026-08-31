@@ -29,10 +29,10 @@
 	"optLikePercentage": {
 		"message": "Percentage"
 	},
-	"optLikeMinutes" : {
+	"optLikeMinutes": {
 		"message": "Minutes"
 	},
-	"optLikeRandom" : {
+	"optLikeRandom": {
 		"message": "Random timer"
 	},
 	"optUseList": {
@@ -65,7 +65,7 @@
 	"linkContribute": {
 		"message": "Bijdragen"
 	},
-		"mngName": {
+	"mngName": {
 		"message": "Channel Name"
 	},
 	"mngURL": {
@@ -76,5 +76,11 @@
 	},
 	"mngImportChannels": {
 		"message": "Import channels"
+	},
+	"optLikeNormalVideos": {
+		"message": "Vind ik leuk normale video's"
+	},
+	"optLikeShorts": {
+		"message": "Vind ik leuk Shorts"
 	}
 }

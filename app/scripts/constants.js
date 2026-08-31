@@ -1,5 +1,7 @@
 var OPTIONS = {
 	like_what: 'subscribed',
+	like_short: true,
+	like_normal: true,
 	like_timer: 'instant',
 	minute_timer: false,
 	minute_value: 10,
