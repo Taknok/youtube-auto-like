@@ -33,6 +33,7 @@ jobs:
         run: |
           npx \
             --package=semantic-release@latest \
+            --package=@semantic-release/changelog@latest \
             --package=@semantic-release/commit-analyzer@latest \
             --package=@semantic-release/exec@latest \
             --package=@semantic-release/git@latest \
