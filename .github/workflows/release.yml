@@ -34,12 +34,9 @@ jobs:
           npx \
             --package=semantic-release@latest \
             --package=@semantic-release/changelog@latest \
-            --package=@semantic-release/commit-analyzer@latest \
             --package=@semantic-release/exec@latest \
             --package=@semantic-release/git@latest \
             --package=@semantic-release/github@latest \
-            --package=@semantic-release/release-notes-generator@latest \
-            --package=conventional-changelog-conventionalcommits@latest \
             semantic-release
           echo "release_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
           if [ -f .semantic-release-success ]; then
