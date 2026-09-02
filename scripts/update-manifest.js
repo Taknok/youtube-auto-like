@@ -1,7 +1,6 @@
 const fs = require("fs");
 
 const manifestPath = "app/manifest.json";
-const packageJsonPath = "package.json";
 const version = process.argv[2];
 
 if (!version) {
@@ -17,12 +16,5 @@ fs.writeFileSync(
   JSON.stringify(manifest, null, 2) + "\n"
 );
 
-const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, "utf8"));
-packageJson.version = version;
 
-fs.writeFileSync(
-  packageJsonPath,
-  JSON.stringify(packageJson, null, 2) + "\n"
-);
-
-console.log(`Updated manifest.json and package.json to ${version}`);
+console.log(`Updated manifest.json to ${version}`);
