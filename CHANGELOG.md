@@ -1,3 +1,13 @@
+## [4.4.0](https://github.com/Taknok/youtube-auto-like/compare/4.3.0...4.4.0) (2026-09-02)
+
+### Features
+
+* add toggles for liking shorts and normal videos independently ([3969b2e](https://github.com/Taknok/youtube-auto-like/commit/3969b2e114dedaceabc4dffbd6fa790a6f3181ec)), closes [#145](https://github.com/Taknok/youtube-auto-like/issues/145)
+
+### Bug Fixes
+
+* resolve semantic-release changelog dependency conflict ([5cac462](https://github.com/Taknok/youtube-auto-like/commit/5cac462d0e4070a02d067eb50c7c42e263744a87))
+
 ## [4.3.0](https://github.com/Taknok/youtube-auto-like/compare/4.2.4...4.3.0) (2026-07-28)
 
 ## [4.2.4](https://github.com/Taknok/youtube-auto-like/compare/4.2.3...4.2.4) (2026-07-14)
