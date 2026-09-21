@@ -1,3 +1,9 @@
+## [4.4.2](https://github.com/Taknok/youtube-auto-like/compare/4.4.1...4.4.2) (2026-09-21)
+
+### Bug Fixes
+
+* typo ([5004ce3](https://github.com/Taknok/youtube-auto-like/commit/5004ce34fd001f2740723ef8f58d11f01b52e400))
+
 ## [4.4.1](https://github.com/Taknok/youtube-auto-like/compare/4.4.0...4.4.1) (2026-09-21)
 
 ### Bug Fixes
