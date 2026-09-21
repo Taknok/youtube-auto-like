@@ -1,3 +1,10 @@
+## [4.4.1](https://github.com/Taknok/youtube-auto-like/compare/4.4.0...4.4.1) (2026-09-21)
+
+### Bug Fixes
+
+* dislike selector in paper liker ([c3e5526](https://github.com/Taknok/youtube-auto-like/commit/c3e55262fab2566e877bd392a86775008f748c8b)), closes [#147](https://github.com/Taknok/youtube-auto-like/issues/147)
+* **lang:** update Finnish translation ([eb37ed9](https://github.com/Taknok/youtube-auto-like/commit/eb37ed957ce472c52d0701a9050cac04bbb864a2))
+
 ## [4.4.0](https://github.com/Taknok/youtube-auto-like/compare/4.3.0...4.4.0) (2026-09-02)
 
 ### Features
