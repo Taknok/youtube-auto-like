@@ -8,7 +8,7 @@ class PaperLiker extends MetaLiker {
 	ACTION_ELEMENTS_SELECTOR = "ytd-menu-renderer.ytd-watch-metadata segmented-like-dislike-button-view-model";
 	LIKE_DATA_SELECTOR = "like-button-view-model toggle-button-view-model";
 	LIKE_SELECTOR = this.LIKE_DATA_SELECTOR + " button";
-	DISLIKE_DATA_SELECTOR = this.LIKE_DATA_SELECTOR;
+	DISLIKE_DATA_SELECTOR = "dislike-button-view-model toggle-button-view-model";
 	LIVE_SELECTOR = ".ytp-live-badge[disabled='']";
 
 	/*
