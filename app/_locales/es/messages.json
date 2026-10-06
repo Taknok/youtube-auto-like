@@ -82,5 +82,14 @@
 	},
 	"optLikeShorts": {
 		"message": "Me gustan los Shorts"
+	},
+	"optListOr": {
+		"message": "Cualquiera de los dos sirve"
+	},
+	"optListAnd": {
+		"message": "Deben cumplirse ambos"
+	},
+	"optListCombination": {
+		"message": "¿Cómo debe afectar la lista al modo de vídeo?"
 	}
 }

@@ -4,7 +4,7 @@
 		"description": "Name der Anwendung"
 	},
 	"appDesc": {
-		"message": "Like 'automagisch' die Videos deiner Lieblingscreator.",
+		"message": "Like \u0027automagisch\u0027 die Videos deiner Lieblingscreator.",
 		"description": "Beschreibung der Anwendung"
 	},
 	"appDescDetail": {
@@ -39,10 +39,10 @@
 		"message": "Liste verwenden"
 	},
 	"optBlackList": {
-		"message": "'Auschließen' Modus"
+		"message": "\u0027Auschließen\u0027 Modus"
 	},
 	"optWhiteList": {
-		"message": "'Erlauben' Modus"
+		"message": "\u0027Erlauben\u0027 Modus"
 	},
 	"optWhiteListWarning": {
 		"message": "⚠️ Liste ist leer, es wird nichts geliked"
@@ -82,5 +82,14 @@
 	},
 	"optLikeShorts": {
 		"message": "Shorts liken"
+	},
+	"optListOr": {
+		"message": "Eines genügt"
+	},
+	"optListAnd": {
+		"message": "Beides erforderlich"
+	},
+	"optListCombination": {
+		"message": "Wie soll die Liste den Videomodus beeinflussen?"
 	}
 }

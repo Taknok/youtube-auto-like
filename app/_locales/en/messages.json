@@ -80,5 +80,14 @@
 	},
 	"mngImportChannels": {
 		"message": "Import channels"
+	},
+	"optListOr": {
+		"message": "Allow either"
+	},
+	"optListAnd": {
+		"message": "Require both"
+	},
+	"optListCombination": {
+		"message": "How should the list affect video mode?"
 	}
 }

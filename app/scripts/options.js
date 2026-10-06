@@ -218,6 +218,7 @@ docReady(function() {
 		document.querySelector(`input[name="like_what"][value="${options.like_what}"]`).setAttribute("checked", "checked");
 		document.querySelector(`input[name="like_timer"][value="${options.like_timer}"]`).click();
 		document.querySelector(`input[name="type_list"][value="${options.type_list}"]`).setAttribute("checked", "checked");
+		document.querySelector(`input[name="list_combination"][value="${options.list_combination || "and"}"]`).setAttribute("checked", "checked");
 
 		document.getElementById("like_short").checked = (options.like_short !== false);
 		document.getElementById("like_normal").checked = (options.like_normal !== false);

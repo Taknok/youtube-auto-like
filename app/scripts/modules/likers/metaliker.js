@@ -277,46 +277,37 @@ class MetaLiker {
 		if (this.options.like_what === "subscribed") {
 			log("Sub mode");
 			mode_should_like = this.isUserSubscribed();	
-		} else { // it all mode
+		} else if (this.options.like_what === "all") {
 			log("All mode");
 			mode_should_like = true;
+		} else {
+			return false;
 		}
 		
 		log("Use list:", this.options.use_list);
-		if (this.options.use_list) {
-			let list_should_like = "";
-			let creator = getCreatorFromVideo();
-			let creator_list = this.options.creator_list;
-			let in_list = false;
-			for (var i = 0; i < creator_list.length; i++) {
-				if ( creator_list[i].URL === creator.URL ) {
-					log("Creator is in list");
-					in_list = true;
-					break;
-				}
-			}
-
-			if (this.options.type_list === "white") {
-				log("List is in white mode")
-				list_should_like = in_list;
-				// in white list only the list matter
-				let should_like = list_should_like;
-				log(`Should like: ${should_like}`);
-				return should_like;
-			} else if (this.options.type_list === "black") {
-				log("List is in black mode")
-				list_should_like = !in_list;
-
-				let should_like = list_should_like && mode_should_like;
-				log(`Should like: ${should_like}`);
-				return should_like;
-			} else {
-				console.error("Unknow list type for liker")
-			}
-		} else {
+		if (!this.options.use_list) {
 			log(`Should like: ${mode_should_like}`)
 			return mode_should_like;
 		}
+
+		const creator = getCreatorFromVideo();
+		const in_list = this.options.creator_list.some((listedCreator) => listedCreator.URL === creator.URL);
+		const combineWithOr = this.options.list_combination === "or";
+		let should_like;
+
+		if (this.options.type_list === "white") {
+			log("List is in white mode");
+			should_like = combineWithOr ? mode_should_like || in_list : mode_should_like && in_list;
+		} else if (this.options.type_list === "black") {
+			log("List is in black mode");
+			should_like = combineWithOr ? mode_should_like || !in_list : mode_should_like && !in_list;
+		} else {
+			console.error("Unknown list type for liker");
+			return mode_should_like;
+		}
+
+		log(`Should like: ${should_like}`);
+		return should_like;
 	}
 
 	/*
