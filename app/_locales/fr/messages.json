@@ -91,5 +91,20 @@
 	},
 	"optListCombination": {
 		"message": "Comment la liste doit-elle agir sur le mode vidéo ?"
+	},
+	"optListInfoLabel": {
+		"message": "Informations sur les modes de liste"
+	},
+	"optListInfoBlack": {
+		"message": "Les vidéos des chaînes listées sont exclues."
+	},
+	"optListInfoWhite": {
+		"message": "Seules les vidéos des chaînes listées respectent la règle de la liste."
+	},
+	"optListInfoAnd": {
+		"message": "Une vidéo doit correspondre au mode J’aime sélectionné et à la règle de la liste. Le mode Désactiver bloque toujours les mentions J’aime."
+	},
+	"optListInfoOr": {
+		"message": "Une vidéo peut correspondre au mode J’aime sélectionné ou à la règle de la liste."
 	}
 }

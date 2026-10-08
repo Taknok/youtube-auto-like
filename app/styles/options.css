@@ -133,6 +133,80 @@ input.toggle-on-button:checked ~ .toggle-content {
 	max-height:100%;
 }
 
+.list-mode-info {
+	display: inline-block;
+	position: relative;
+	margin-left: 0.2em;
+	top: -0.2em;
+	cursor: help;
+}
+
+.list-mode-info-icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 1em;
+	height: 1em;
+	border: 1px solid currentColor;
+	border-radius: 50%;
+	color: #666;
+	font-family: Arial, sans-serif;
+	font-size: 0.7em;
+	font-weight: bold;
+	line-height: 1;
+}
+
+.list-mode-info:focus-visible .list-mode-info-icon {
+	outline: 2px solid #e62117;
+	outline-offset: 2px;
+}
+
+.list-mode-info-content {
+	position: absolute;
+	top: calc(100% + 0.5em);
+	left: -110px;
+	z-index: 1;
+	width: 260px;
+	box-sizing: border-box;
+	padding: 0.75em;
+	border: 1px solid #ccc;
+	border-radius: 0.3em;
+	background: #fff;
+	box-shadow: 0 2px 8px rgb(0 0 0 / 20%);
+	font-size: 13px;
+	line-height: 1.4;
+	visibility: hidden;
+	opacity: 0;
+	transition: opacity 0.1s ease-in-out;
+	cursor: default;
+}
+
+.list-mode-info:hover .list-mode-info-content,
+.list-mode-info:focus .list-mode-info-content {
+	visibility: visible;
+	opacity: 1;
+}
+
+.list-mode-info-content p {
+	margin: 0;
+}
+
+.list-mode-info-content p + p {
+	margin-top: 0.5em;
+}
+
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
 .toggle-content{
 	max-width: 100%;
 	padding-left: 20px;
@@ -295,4 +369,8 @@ table th {
 	height: 1.15em;
 	position: relative;
 	top: 0.2em;
+}
+
+strong {
+	font-weight: bold;
 }
