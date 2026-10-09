@@ -6,7 +6,7 @@
 		"message": "Tykkää Youtube-videoista ja sisällöntuottajista automaagisesti."
 	},
 	"appDescDetail": {
-		"message": "Tämä sovellus painaa 'Tykkää'-nappia, kun katsot videon kanavalta jonka olet tilannut. Sinun ei tarvitse vaivautua sitä tekemään. Vaihtoehtoisesti voit antaa sen tykätä jokaisesta videosta. Miksi? En tiedä. Tee mitä haluat. Voit halutessasi ehdottaa uusia ominaisuuksia tai osallistua kehitykseen."
+		"message": "Tämä sovellus painaa \u0027Tykkää\u0027-nappia, kun katsot videon kanavalta jonka olet tilannut. Sinun ei tarvitse vaivautua sitä tekemään. Vaihtoehtoisesti voit antaa sen tykätä jokaisesta videosta. Miksi? En tiedä. Tee mitä haluat. Voit halutessasi ehdottaa uusia ominaisuuksia tai osallistua kehitykseen."
 	},
 	"optLikeSub": {
 		"message": "Tykkää videoista tilatuilta kanavilta"
@@ -79,5 +79,29 @@
 	},
 	"mngImportChannels": {
 		"message": "Tuo kanavalista"
-	}
+	},
+	"optListOr": {
+		"message": "Kumpi tahansa riittää"
+	},
+	"optListAnd": {
+		"message": "Molempien on täytyttävä"
+	},
+	"optListCombination": {
+		"message": "Listan toimintaperiaate:"
+	},
+	"optListInfoLabel": {
+		"message": "Tietoa listan toimintaperiaatteesta"
+	},
+	"optListInfoBlack": {
+		"message": "Listalla olevat kanavat jätetään huomioimatta."
+	},
+	"optListInfoWhite": {
+		"message": "Vain listalla olevat kanavat huomioidaan."
+	},
+	"optListInfoAnd": {
+		"message": "Sekä listan että tilan on sisällettävä kanava, jotta se huomioidaan."
+	},
+	"optListInfoOr": {
+		"message": "Pelkkä lista tai tila riittää."
+	} 
 }

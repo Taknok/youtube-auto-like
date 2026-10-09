@@ -80,5 +80,29 @@
 	},
 	"mngImportChannels": {
 		"message": "Import channels"
+	},
+	"optListOr": {
+		"message": "Allow either"
+	},
+	"optListAnd": {
+		"message": "Require both"
+	},
+	"optListCombination": {
+		"message": "How should the list affect video mode?"
+	},
+	"optListInfoLabel": {
+		"message": "List mode information"
+	},
+	"optListInfoBlack": {
+		"message": "Videos from listed channels are excluded."
+	},
+	"optListInfoWhite": {
+		"message": "Only videos from listed channels pass the list rule."
+	},
+	"optListInfoAnd": {
+		"message": "A video must match both the selected like mode and the list rule. Disable mode still prevents all likes."
+	},
+	"optListInfoOr": {
+		"message": "A video can match either the selected like mode or the list rule."
 	}
 }

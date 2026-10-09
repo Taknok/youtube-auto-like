@@ -82,5 +82,14 @@
 	},
 	"optLikeShorts": {
 		"message": "Gilla Shorts"
+	},
+	"optListOr": {
+		"message": "Ett av villkoren räcker"
+	},
+	"optListAnd": {
+		"message": "Båda villkoren måste uppfyllas"
+	},
+	"optListCombination": {
+		"message": "Hur ska listan påverka videoläget?"
 	}
 }

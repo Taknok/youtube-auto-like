@@ -103,14 +103,14 @@ function areCreatorsEquals(x, y) {
 }
 
 function getCreatorFromVideo() {
-	let videoDetails = ytInitialPlayerResponse?.videoDetails;
+	let videoDetails = document.querySelector('ytd-player')?.wrappedJSObject?.getPlayer()?.getPlayerResponse()?.videoDetails;
 	let name = videoDetails?.author;
 	let URL = `https://www.youtube.com/channel/${videoDetails?.channelId}`;
 	return {name, URL};
 }
 
 function getCreatorFromHome() {
-	let channelDetails = ytInitialData?.metadata?.channelMetadataRenderer;
+	let channelDetails = document.querySelector("ytd-app")?.wrappedJSObject?.data?.response?.metadata?.channelMetadataRenderer;
 	let name = channelDetails?.title;
 	let URL = channelDetails?.channelUrl;
 	return {name, URL};

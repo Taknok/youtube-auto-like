@@ -1,7 +1,7 @@
 {
 	"appName": {
 		"message": "YouTube Auto Like",
-		"description": "Ім'я допоміжного застосунку"
+		"description": "Ім\u0027я допоміжного застосунку"
 	},
 	"appDesc": {
 		"message": "Самовподобування видив ТиТрубу з числа твоїх улюблених творців.",
@@ -82,5 +82,14 @@
 	},
 	"optLikeShorts": {
 		"message": "Лайкати Shorts"
+	},
+	"optListOr": {
+		"message": "Достатньо однієї умови"
+	},
+	"optListAnd": {
+		"message": "Обидві умови мають виконуватися"
+	},
+	"optListCombination": {
+		"message": "Як список має впливати на режим відео?"
 	}
 }

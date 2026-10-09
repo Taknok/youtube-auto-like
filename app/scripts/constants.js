@@ -9,6 +9,7 @@ var OPTIONS = {
 	percentage_value: 5,
 	use_list: false,
 	type_list: 'black',
+	list_combination: 'and',
 	plugin_version: "0.0.0",
 	creator_list: [],
 	debug: false,

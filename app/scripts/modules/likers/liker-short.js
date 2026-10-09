@@ -6,7 +6,7 @@ class ShortLiker extends MetaLiker {
 
 	VIDEO_SELECTOR = ".video-stream";
 	ACTION_ELEMENTS_SELECTOR = "reel-action-bar-view-model";
-	LIKE_DATA_SELECTOR = "ytd-reel-player-overlay-renderer toggle-button-view-model";
+	LIKE_DATA_SELECTOR = "like-button-view-model toggle-button-view-model";
 	LIKE_SELECTOR = this.LIKE_DATA_SELECTOR + " button";
 	DISLIKE_DATA_SELECTOR = this.LIKE_DATA_SELECTOR; // there is no dislike button on shorts
 	LIVE_SELECTOR = ".ytp-live-badge[disabled='']"; // not sure if it works on shorts
@@ -17,7 +17,6 @@ class ShortLiker extends MetaLiker {
 	 *                   the current video's channel
 	 */
 	isUserSubscribed() {
-		let renderer = document.querySelector("ytd-reel-player-overlay-renderer")
 		let subscribeButton = document.querySelector("yt-subscribe-button-view-model")
 
 		// if not button is generated, the user is subscribed

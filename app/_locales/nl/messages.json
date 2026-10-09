@@ -78,9 +78,18 @@
 		"message": "Import channels"
 	},
 	"optLikeNormalVideos": {
-		"message": "Vind ik leuk normale video's"
+		"message": "Vind ik leuk normale video\u0027s"
 	},
 	"optLikeShorts": {
 		"message": "Vind ik leuk Shorts"
+	},
+	"optListOr": {
+		"message": "Een van beide is genoeg"
+	},
+	"optListAnd": {
+		"message": "Beide moeten overeenkomen"
+	},
+	"optListCombination": {
+		"message": "Hoe moet de lijst de videomodus beïnvloeden?"
 	}
 }

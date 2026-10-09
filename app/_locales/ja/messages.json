@@ -82,5 +82,14 @@
 	},
 	"optLikeShorts": {
 		"message": "ショートをいいねする"
+	},
+	"optListOr": {
+		"message": "どちらか一方でよい"
+	},
+	"optListAnd": {
+		"message": "両方を満たす"
+	},
+	"optListCombination": {
+		"message": "リストを動画モードにどう反映しますか？"
 	}
 }

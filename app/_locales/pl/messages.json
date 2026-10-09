@@ -1,4 +1,4 @@
-﻿{
+{
 	"appName": {
 		"message": "YouTube Auto Like",
 		"description": "Name of the application"
@@ -29,10 +29,10 @@
 	"optLikePercentage": {
 		"message": "Percentage"
 	},
-	"optLikeMinutes" : {
+	"optLikeMinutes": {
 		"message": "Minutes"
 	},
-	"optLikeRandom" : {
+	"optLikeRandom": {
 		"message": "Random timer"
 	},
 	"optUseList": {
@@ -82,5 +82,14 @@
 	},
 	"optLikeNormalVideos": {
 		"message": "Lubię normalne filmy"
+	},
+	"optListOr": {
+		"message": "Wystarczy jeden warunek"
+	},
+	"optListAnd": {
+		"message": "Oba warunki muszą być spełnione"
+	},
+	"optListCombination": {
+		"message": "Jak lista ma wpływać na tryb filmów?"
 	}
 }

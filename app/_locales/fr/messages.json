@@ -1,14 +1,14 @@
-﻿{
+{
 	"appName": {
 		"message": "YouTube Auto Like",
-		"description": "Nom de l'application"
+		"description": "Nom de l\u0027application"
 	},
 	"appDesc": {
 		"message": "Like automatiquement les vidéos YouTube de vos créateurs préférés.",
-		"description": "Description de l'application"
+		"description": "Description de l\u0027application"
 	},
 	"appDescDetail": {
-		"message": "Ce plugin like automatiquement les vidéos YouTube. Comme ça, vous n'oublierez plus de supporter vos créateurs préférés. Vous pouvez choisir d'aimer toutes les vidéos, seulement des chaînes souscrites ou aucune. Si vous dislikez une vidéo, celle-ci ne sera pas relikée par la suite. Aucune connexion nécessaire. Vous pouvez proposer de nouvelles fonctionnalités ou contribuer au plugin.",
+		"message": "Ce plugin like automatiquement les vidéos YouTube. Comme ça, vous n\u0027oublierez plus de supporter vos créateurs préférés. Vous pouvez choisir d\u0027aimer toutes les vidéos, seulement des chaînes souscrites ou aucune. Si vous dislikez une vidéo, celle-ci ne sera pas relikée par la suite. Aucune connexion nécessaire. Vous pouvez proposer de nouvelles fonctionnalités ou contribuer au plugin.",
 		"description": "Description detaillée pour la page web du plugin"
 	},
 	"optLikeSub": {
@@ -82,5 +82,29 @@
 	},
 	"mngImportChannels": {
 		"message": "Import channels"
+	},
+	"optListOr": {
+		"message": "L'un ou l'autre suffit"
+	},
+	"optListAnd": {
+		"message": "Les deux sont requis"
+	},
+	"optListCombination": {
+		"message": "Comment la liste doit-elle agir sur le mode vidéo ?"
+	},
+	"optListInfoLabel": {
+		"message": "Informations sur les modes de liste"
+	},
+	"optListInfoBlack": {
+		"message": "Les vidéos des chaînes listées sont exclues."
+	},
+	"optListInfoWhite": {
+		"message": "Seules les vidéos des chaînes listées respectent la règle de la liste."
+	},
+	"optListInfoAnd": {
+		"message": "Une vidéo doit correspondre au mode J’aime sélectionné et à la règle de la liste. Le mode Désactiver bloque toujours les mentions J’aime."
+	},
+	"optListInfoOr": {
+		"message": "Une vidéo peut correspondre au mode J’aime sélectionné ou à la règle de la liste."
 	}
 }

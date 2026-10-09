@@ -81,6 +81,15 @@
 		"message": "Normal videoları Beğen"
 	},
 	"optLikeShorts": {
-		"message": "Shorts'u Beğen"
+		"message": "Shorts\u0027u Beğen"
+	},
+	"optListOr": {
+		"message": "İkisinden biri yeterli"
+	},
+	"optListAnd": {
+		"message": "Her ikisi de gerekli"
+	},
+	"optListCombination": {
+		"message": "Liste video modunu nasıl etkilemeli?"
 	}
 }
