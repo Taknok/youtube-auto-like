@@ -27,6 +27,13 @@ The debug mode option can be displayed in the addon popup by entering the konami
 :warning: `browser.storage.sync` can cause issues when loaded temporarily, change it by `browser.storage.local` in **scripts/option-manager.js**.<br>
 [PR](https://github.com/Taknok/youtube-auto-like/pulls) are welcomed :)
 
+### Devcontainer
+Open the repository in a devcontainer to install the project's Node.js dependencies automatically. To package the extension locally, run:
+
+```sh
+npx web-ext build --source-dir app --overwrite-dest --artifacts-dir dist
+```
+
 ## Credits
 - [Austencm](https://github.com/austencm/youtube-auto-like)
 - [DeadSix27](https://github.com/DeadSix27) ~ DE translation

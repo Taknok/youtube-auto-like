@@ -1,0 +1,6 @@
+{
+  "name": "YouTube Auto Like",
+  "image": "node:latest",
+  "remoteUser": "node",
+  "postCreateCommand": "npm install --no-package-lock"
+}
