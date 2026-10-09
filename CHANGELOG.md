@@ -1,3 +1,15 @@
+## [4.5.0](https://github.com/Taknok/youtube-auto-like/compare/4.4.2...4.5.0) (2026-10-09)
+
+### Features
+
+* add list interaction with liking mode ([d8880c5](https://github.com/Taknok/youtube-auto-like/commit/d8880c55f6e04e4d353e5f2f676524bd3a102417))
+
+### Bug Fixes
+
+* add info text for list mode ([e4976d2](https://github.com/Taknok/youtube-auto-like/commit/e4976d2bf3e65328431e500ad030b520d9f73284))
+* update channel retrieval to ignore SPA navigation ([a9c6789](https://github.com/Taknok/youtube-auto-like/commit/a9c67893581357b7bf59c70872cc9da66f318418))
+* update to new youtube short tag ([4895eac](https://github.com/Taknok/youtube-auto-like/commit/4895eac2a27eb0e9e6737f1dbbdc4584f88c5fd7)), closes [#150](https://github.com/Taknok/youtube-auto-like/issues/150)
+
 ## [4.4.2](https://github.com/Taknok/youtube-auto-like/compare/4.4.1...4.4.2) (2026-09-21)
 
 ### Bug Fixes
