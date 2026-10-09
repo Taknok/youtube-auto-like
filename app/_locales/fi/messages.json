@@ -87,6 +87,21 @@
 		"message": "Molempien on täytyttävä"
 	},
 	"optListCombination": {
-		"message": "Miten lista vaikuttaa videotilaan?"
-	}
+		"message": "Listan toimintaperiaate:"
+	},
+	"optListInfoLabel": {
+		"message": "Tietoa listan toimintaperiaatteesta"
+	},
+	"optListInfoBlack": {
+		"message": "Listalla olevat kanavat jätetään huomioimatta."
+	},
+	"optListInfoWhite": {
+		"message": "Vain listalla olevat kanavat huomioidaan."
+	},
+	"optListInfoAnd": {
+		"message": "Sekä listan että tilan on sisällettävä kanava, jotta se huomioidaan."
+	},
+	"optListInfoOr": {
+		"message": "Pelkkä lista tai tila riittää."
+	} 
 }
