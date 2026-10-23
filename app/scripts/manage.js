@@ -96,22 +96,22 @@ function downloadCreatorList() {
 		a.click();
 		document.body.removeChild(a);
 		URL.revokeObjectURL(url);
-		setStatus('Creator list exported.');
+		setStatus(chrome.i18n.getMessage('mngExportSuccess'));
 	}).catch((e) => {
 		console.error(e);
-		setStatus('Export failed.', true);
+		setStatus(chrome.i18n.getMessage('mngExportFail'), true);
 	});
 }
 
 function handleImportFile(file) {
 	if (!file) {
-		setStatus('No file selected.', true);
+		setStatus(chrome.i18n.getMessage('mngImportFail'), true);
 		return;
 	}
 
 	const confirmed = confirm('Importing will erase the current creator list. Are you sure you want to proceed?');
 	if (!confirmed) {
-		setStatus('Import cancelled.');
+		setStatus(chrome.i18n.getMessage('mngImportCancel'), true);
 		return;
 	}
 
@@ -133,20 +133,20 @@ function handleImportFile(file) {
 				return optionManager.set(options);
 			}).then(() => {
 				loadCreatorList();
-				setStatus('Import successful.');
+				setStatus(chrome.i18n.getMessage('mngImportSuccess'));
 			}).catch((err) => {
 				console.error(err);
-				setStatus('Import failed (storage error).', true);
+				setStatus(`${chrome.i18n.getMessage('mngImportFail')} (storage error).`, true);
 			});
 		} catch (err) {
 			console.error(err);
-			setStatus(`Import failed: ${err.message}`, true);
+			setStatus(`${chrome.i18n.getMessage('mngImportFail')}: ${err.message}`, true);
 		}
 	};
 
 	reader.onerror = (err) => {
 		console.error(err);
-		setStatus('Import failed (file read error).', true);
+		setStatus(`${chrome.i18n.getMessage('mngImportFail')} (file read error).`, true);
 	};
 
 	reader.readAsText(file, 'UTF-8');

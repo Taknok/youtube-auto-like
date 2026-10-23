@@ -1,5 +1,5 @@
 body {
-	width: 305px;
+	max-width: 305px;
 	margin: 0;
 	padding: 30px;
 	font-family: 'Titillium Web';
