@@ -61,3 +61,7 @@ a:hover {
 	position: relative;
 	top: 0.2em;
 }
+
+strong {
+	font-weight: bold;
+}
