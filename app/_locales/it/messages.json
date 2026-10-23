@@ -1,0 +1,123 @@
+{
+	"appName": {
+		"message": "YouTube Auto Like",
+		"description": "Nome dell'applicazione"
+	},
+	"appDesc": {
+		"message": "Metti automaticamente Mi piace ai video YouTube dei tuoi creator preferiti.",
+	},
+	"appDescDetail": {
+		"message": "Questa estensione mette automaticamente Mi piace ai video dei canali a cui sei iscritto. Non devi fare nulla e non è necessario autenticarti. In alternativa, puoi mettere Mi piace automaticamente a TUTTI i video. Perché? Non ne ho idea. Divertiti! Puoi suggerire nuove funzionalità o contribuire:",
+	},
+	"optLikeSub": {
+		"message": "Metti Mi piace solo ai video dei canali a cui sei iscritto"
+	},
+	"optLikeAll": {
+		"message": "Metti Mi piace a tutti i video"
+	},
+	"optLikeNone": {
+		"message": "Disattiva"
+	},
+	"optLikeInstant": {
+		"message": "Mi piace immediato"
+	},
+	"optLikeCustom": {
+		"message": "Timer personalizzato"
+	},
+	"optLikePercentage": {
+		"message": "Percentuale"
+	},
+	"optLikeMinutes": {
+		"message": "Minuti"
+	},
+	"optLikeRandom": {
+		"message": "Timer casuale"
+	},
+	"optUseList": {
+		"message": "Usa la lista"
+	},
+	"optBlackList": {
+		"message": "Modalità lista di blocco"
+	},
+	"optWhiteList": {
+		"message": "Modalità lista consentita"
+	},
+	"optWhiteListWarning": {
+		"message": "⚠️ la lista è vuota, non verrà messo Mi piace a nulla"
+	},
+	"optMngList": {
+		"message": "Gestisci la lista"
+	},
+	"optAddChannel": {
+		"message": "Aggiungi canale"
+	},
+	"optRemoveChannel": {
+		"message": "Rimuovi canale"
+	},
+	"optLikeShorts": {
+		"message": "Metti Mi piace agli Shorts"
+	},
+	"optLikeNormalVideos": {
+		"message": "Metti Mi piace ai video normali"
+	},
+	"optNotifyUpdate": {
+		"message": "Notifica gli aggiornamenti"
+	},
+	"linkDonate": {
+		"message": "Fai una donazione"
+	},
+	"linkContribute": {
+		"message": "Contribuisci"
+	},
+	"mngName": {
+		"message": "Nome del canale"
+	},
+	"mngURL": {
+		"message": "URL del canale"
+	},
+	"mngExportChannels": {
+		"message": "Esporta i canali"
+	},
+	"mngImportChannels": {
+		"message": "Importa i canali"
+	},
+	"optListOr": {
+		"message": "È sufficiente una delle due condizioni"
+	},
+	"optListAnd": {
+		"message": "Sono necessarie entrambe"
+	},
+	"optListCombination": {
+		"message": "Come deve influire la lista sulla modalità dei video?"
+	},
+	"optListInfoLabel": {
+		"message": "Informazioni sulla modalità lista"
+	},
+	"optListInfoBlack": {
+		"message": "I video dei canali presenti nella lista vengono esclusi."
+	},
+	"optListInfoWhite": {
+		"message": "Solo i video dei canali presenti nella lista soddisfano la regola."
+	},
+	"optListInfoAnd": {
+		"message": "Un video deve soddisfare sia la modalità Mi piace selezionata sia la regola della lista. La modalità Disattiva impedisce comunque tutti i Mi piace."
+	},
+	"optListInfoOr": {
+		"message": "Un video può soddisfare la modalità Mi piace selezionata oppure la regola della lista."
+	},
+	"msgExportSuccess": {
+		"message": "Lista dei canali esportata."
+	},
+	"msgExportFail": {
+		"message": "Esportazione non riuscita."
+	},
+	"msgImportFail": {
+		"message": "Importazione non riuscita"
+	},
+	"msgImportCancel": {
+		"message": "Importazione annullata."
+	},
+	"msgImportSucess": {
+		"message": "Importazione completata."
+	}
+}
