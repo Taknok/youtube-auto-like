@@ -4,60 +4,66 @@
 		"description": "Naam van de applicatie"
 	},
 	"appDesc": {
-		"message": "Liked de YouTube videos van je favoriete content makers automagisch.",
+		"message": "Waardeer de YouTube video's van je favoriete content makers automatisch.",
 		"description": "Beschrijving van de applicatie"
 	},
 	"appDescDetail": {
-		"message": "Het enige wat deze extensie doet, is het indrukken van de like knop van videos van kanalen waarop je bent geabonneerd. Geen inspanning vereist. Geen authenticatie vereist. Je kunt zelfs ELKE video liken. Waarom? Geen idee. Ga los. Schroom niet om suggesties achter te laten:",
+		"message": "Het enige wat deze extensie doet, is het indrukken van de waardeer knop van video's van kanalen waarop je bent geabonneerd. Geen inspanning vereist. Geen authenticatie vereist. Je kunt zelfs ELKE video waarderen. Waarom? Geen idee. Ga los. U kunt gerust nieuwe functies voorstellen of bijdragen:",
 		"description": "Beschrijving voor de winkel pagina"
 	},
 	"optLikeSub": {
-		"message": "Vindt videos alleen leuk van geabonneerde kanalen"
+		"message": "Waardeer alleen video's van geabonneerde kanalen"
 	},
 	"optLikeAll": {
-		"message": "Vindt alle videos leuk"
+		"message": "Waardeer alle video's"
 	},
 	"optLikeNone": {
 		"message": "Schakel uit"
 	},
 	"optLikeInstant": {
-		"message": "Sofort"
+		"message": "Direct waarderen"
 	},
 	"optLikeCustom": {
-		"message": "Custom timer"
+		"message": "Aangepaste timer"
 	},
 	"optLikePercentage": {
 		"message": "Percentage"
 	},
 	"optLikeMinutes": {
-		"message": "Minutes"
+		"message": "Minuten"
 	},
 	"optLikeRandom": {
-		"message": "Random timer"
+		"message": "Willekeurige timer"
 	},
 	"optUseList": {
-		"message": "Use list"
+		"message": "Gebruik lijst"
 	},
 	"optBlackList": {
-		"message": "Block list mode"
+		"message": "Zwarte lijst modus"
 	},
 	"optWhiteList": {
-		"message": "Allow list mode"
+		"message": "Witte lijst modus"
 	},
 	"optWhiteListWarning": {
-		"message": "⚠️ list is empty, nothing will be liked"
+		"message": "⚠️ lijst is leeg, Niets zal gewaardeerd worden!"
 	},
 	"optMngList": {
-		"message": "Manage list"
+		"message": "Beheer lijst"
 	},
 	"optAddChannel": {
-		"message": "Add channel"
+		"message": "Kanaal toevoegen"
 	},
 	"optRemoveChannel": {
-		"message": "Remove channel"
+		"message": "Kanaal verwijderen"
+	},
+	"optLikeShorts": {
+		"message": "Short's"
+	},
+	"optLikeNormalVideos": {
+		"message": "Normale video's"
 	},
 	"optNotifyUpdate": {
-		"message": "Notify Update"
+		"message": "Update melding"
 	},
 	"linkDonate": {
 		"message": "Doneer"
@@ -66,30 +72,54 @@
 		"message": "Bijdragen"
 	},
 	"mngName": {
-		"message": "Channel Name"
+		"message": "Kanaal Naam"
 	},
 	"mngURL": {
-		"message": "Channel URL"
+		"message": "Kanaal URL"
 	},
 	"mngExportChannels": {
-		"message": "Export channels"
+		"message": "Export kanaal"
 	},
 	"mngImportChannels": {
-		"message": "Import channels"
-	},
-	"optLikeNormalVideos": {
-		"message": "Vind ik leuk normale video\u0027s"
-	},
-	"optLikeShorts": {
-		"message": "Vind ik leuk Shorts"
+		"message": "Import kanaal"
 	},
 	"optListOr": {
-		"message": "Een van beide is genoeg"
+		"message": "Een van beide"
 	},
 	"optListAnd": {
 		"message": "Beide moeten overeenkomen"
 	},
 	"optListCombination": {
 		"message": "Hoe moet de lijst de videomodus beïnvloeden?"
+	},
+	"optListInfoLabel": {
+		"message": "Informatie over de lijstmodus"
+	},
+	"optListInfoBlack": {
+		"message": "Video's van de vermelde kanalen zijn uitgesloten."
+	},
+	"optListInfoWhite": {
+		"message": "Alleen video's van vermelde kanalen worden doorgelaten."
+	},
+	"optListInfoAnd": {
+		"message": "Een video moet voldoen aan zowel de geselecteerde waardeer modus en als regel in de lijst. De modus uitschakelen zorgt er nog steeds voor dat alle waardering worden geblokkeerd."
+	},
+	"optListInfoOr": {
+		"message": "Een video kan overeenkomen met de geselecteerde waardeer modus of met de regel in de lijst."
+	},
+	"msgExportSuccess": {
+		"message": "Kanalenlijst geëxporteerd."
+	},
+	"msgExportFail": {
+		"message": "Exporteren mislukt."
+	},
+	"msgImportFail": {
+		"message": "Importeren mislukt"
+	},
+	"msgImportCancel": {
+		"message": "Importeren geannuleerd."
+	},
+	"msgImportSucess": {
+		"message": "Importeren geslaagd."
 	}
 }
