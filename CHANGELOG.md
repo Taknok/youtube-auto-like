@@ -1,3 +1,9 @@
+## [4.5.2](https://github.com/Taknok/youtube-auto-like/compare/4.5.1...4.5.2) (2026-10-23)
+
+### Bug Fixes
+
+* italian json ([796c1eb](https://github.com/Taknok/youtube-auto-like/commit/796c1eb36ef7d769eb38750bdbca311687ff4bdd))
+
 ## [4.5.1](https://github.com/Taknok/youtube-auto-like/compare/4.5.0...4.5.1) (2026-10-23)
 
 ### Bug Fixes
