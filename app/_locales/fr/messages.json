@@ -106,5 +106,20 @@
 	},
 	"optListInfoOr": {
 		"message": "Une vidéo peut correspondre au mode J’aime sélectionné ou à la règle de la liste."
+	},
+	"msgExportSuccess": {
+		"message": "Liste des chaînes exportée."
+	},
+	"msgExportFail": {
+		"message": "Échec de l’exportation."
+	},
+	"msgImportFail": {
+		"message": "Échec de l’importation"
+	},
+	"msgImportCancel": {
+		"message": "Importation annulée."
+	},
+	"msgImportSucess": {
+		"message": "Importation réussie."
 	}
 }

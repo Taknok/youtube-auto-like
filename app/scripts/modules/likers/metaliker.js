@@ -148,7 +148,7 @@ class MetaLiker {
 	}
 
 	isVideoRated(like, dislike) {
-		return like.wrappedJSObject.data.isToggled || dislike.wrappedJSObject.data.isToggled;
+		return like.querySelector("button").getAttribute("aria-pressed") === "true" || dislike.querySelector("button").getAttribute("aria-pressed") === "true";
 	}
 
 	/**

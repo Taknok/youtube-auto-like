@@ -104,5 +104,23 @@
 	},
 	"optListInfoOr": {
 		"message": "A video can match either the selected like mode or the list rule."
+	},
+	"msgExportSuccess": {
+		"message": "Creator list exported."
+	},
+	"msgExportFail": {
+		"message": "Export failed."
+	},
+	"msgImportFail": {
+		"message": "Import failed"
+	},
+	"msgImportCancel": {
+		"message": "Import cancelled."
+	},
+	"msgImportSucess": {
+		"message": "Import successful."
+	},
+	"mngImportConfirm": {
+		"message": "Importing will erase the current creator list. Are you sure you want to proceed?"
 	}
 }

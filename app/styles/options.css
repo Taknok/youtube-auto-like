@@ -1,5 +1,5 @@
 body {
-	width: 305px;
+	max-width: 305px;
 	margin: 0;
 	padding: 30px;
 	font-family: 'Titillium Web';
@@ -108,6 +108,17 @@ input[type='radio'], input[type='radio']:focus, input[type='radio']:hover, input
     outline: 0;
 }
 
+input[type='radio'] {
+	vertical-align: top;
+	top: 0;
+}
+
+input[type='radio'] + label {
+	display: inline-block;
+	width: calc(100% - 2.5em);
+	vertical-align: top;
+}
+
 input[type='radio']:hover, input[type='radio']:checked {
 	transform: scale(1.1);
 }
@@ -124,21 +135,26 @@ input[type='radio']:checked::before {
 	top: 2px;
 }
 
-input.toggle-on-button ~ .toggle-content {
-	max-height: 0;
-	overflow: hidden;
+input.toggle-on-button ~ div.toggle-content {
+	display: none;
 }
 
-input.toggle-on-button:checked ~ .toggle-content {
-	max-height:100%;
+input.toggle-on-button:checked ~ div.toggle-content {
+	display: block;
 }
 
 .list-mode-info {
 	display: inline-block;
-	position: relative;
 	margin-left: 0.2em;
-	top: -0.2em;
-	cursor: help;
+	vertical-align: center;
+	color: #666;
+	opacity: 1;
+	transition: none;
+}
+
+.list-mode-info:hover {
+	transform: none;
+	opacity: 1;
 }
 
 .list-mode-info-icon {
@@ -159,40 +175,6 @@ input.toggle-on-button:checked ~ .toggle-content {
 .list-mode-info:focus-visible .list-mode-info-icon {
 	outline: 2px solid #e62117;
 	outline-offset: 2px;
-}
-
-.list-mode-info-content {
-	position: absolute;
-	top: calc(100% + 0.5em);
-	left: -110px;
-	z-index: 1;
-	width: 260px;
-	box-sizing: border-box;
-	padding: 0.75em;
-	border: 1px solid #ccc;
-	border-radius: 0.3em;
-	background: #fff;
-	box-shadow: 0 2px 8px rgb(0 0 0 / 20%);
-	font-size: 13px;
-	line-height: 1.4;
-	visibility: hidden;
-	opacity: 0;
-	transition: opacity 0.1s ease-in-out;
-	cursor: default;
-}
-
-.list-mode-info:hover .list-mode-info-content,
-.list-mode-info:focus .list-mode-info-content {
-	visibility: visible;
-	opacity: 1;
-}
-
-.list-mode-info-content p {
-	margin: 0;
-}
-
-.list-mode-info-content p + p {
-	margin-top: 0.5em;
 }
 
 .visually-hidden {
@@ -369,8 +351,4 @@ table th {
 	height: 1.15em;
 	position: relative;
 	top: 0.2em;
-}
-
-strong {
-	font-weight: bold;
 }
