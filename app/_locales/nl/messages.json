@@ -108,7 +108,7 @@
 		"message": "Een video kan overeenkomen met de geselecteerde waardeer modus of met de regel in de lijst."
 	},
 	"msgExportSuccess": {
-		"message": "Kanalenlijst geëxporteerd."
+		"message": "Lijst met makers geëxporteerd."
 	},
 	"msgExportFail": {
 		"message": "Exporteren mislukt."
@@ -121,5 +121,8 @@
 	},
 	"msgImportSucess": {
 		"message": "Importeren geslaagd."
+	},
+	"mngImportConfirm": {
+		"message": "Bij het importeren wordt de huidige lijst met makers gewist. Weet je zeker dat je door wilt gaan ?"
 	}
 }

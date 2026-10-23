@@ -109,7 +109,7 @@ function handleImportFile(file) {
 		return;
 	}
 
-	const confirmed = confirm('Importing will erase the current creator list. Are you sure you want to proceed?');
+	const confirmed = confirm(chrome.i18n.getMessage('mngImportConfirm'));
 	if (!confirmed) {
 		setStatus(chrome.i18n.getMessage('mngImportCancel'), true);
 		return;
