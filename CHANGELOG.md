@@ -1,3 +1,17 @@
+## [4.5.1](https://github.com/Taknok/youtube-auto-like/compare/4.5.0...4.5.1) (2026-10-23)
+
+### Bug Fixes
+
+* Add it translation ([3130ca4](https://github.com/Taknok/youtube-auto-like/commit/3130ca4a940128f0bfba245f8d97f2e254d508fe))
+* allow translation for result notification for list management ([1d0b4ad](https://github.com/Taknok/youtube-auto-like/commit/1d0b4ad63298fe32b0668935896010c54bf8da99))
+* label's overflow stays on right of radio button ([039e987](https://github.com/Taknok/youtube-auto-like/commit/039e9874dbaa51b66b765b336ce114f5eecfc3ec))
+* liked status not detected ([75f8733](https://github.com/Taknok/youtube-auto-like/commit/75f87332d850ca311481b091987119c330089c43)), closes [#155](https://github.com/Taknok/youtube-auto-like/issues/155)
+* remove info popup triggering overflow ([fd53e43](https://github.com/Taknok/youtube-auto-like/commit/fd53e430b9ff4f163185f51d565223b5e3dc0e5f))
+* translate export success message ([eab5b6b](https://github.com/Taknok/youtube-auto-like/commit/eab5b6b611e38a008e9c35326de54824260688c6))
+* Update es translation ([09dfa7b](https://github.com/Taknok/youtube-auto-like/commit/09dfa7b062e8fefd685645d67d50e9189f15d4d5))
+* Update fr translation ([b61b5f9](https://github.com/Taknok/youtube-auto-like/commit/b61b5f9c14d1df0e4915deee06032c2d9f43e372))
+* Update nl translation ([933289a](https://github.com/Taknok/youtube-auto-like/commit/933289aff5c1394439698b1b21e87e2c2b6f5f0f))
+
 ## [4.5.0](https://github.com/Taknok/youtube-auto-like/compare/4.4.2...4.5.0) (2026-10-09)
 
 ### Features
