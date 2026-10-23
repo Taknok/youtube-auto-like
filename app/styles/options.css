@@ -108,6 +108,17 @@ input[type='radio'], input[type='radio']:focus, input[type='radio']:hover, input
     outline: 0;
 }
 
+input[type='radio'] {
+	vertical-align: top;
+	top: 0;
+}
+
+input[type='radio'] + label {
+	display: inline-block;
+	width: calc(100% - 2.5em);
+	vertical-align: top;
+}
+
 input[type='radio']:hover, input[type='radio']:checked {
 	transform: scale(1.1);
 }
