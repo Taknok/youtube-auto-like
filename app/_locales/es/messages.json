@@ -56,6 +56,12 @@
 	"optRemoveChannel": {
 		"message": "Remove channel"
 	},
+	"optLikeShorts": {
+		"message": "Me gustan los Shorts"
+	},
+	"optLikeNormalVideos": {
+		"message": "Me gustan los videos normales"
+	},
 	"optNotifyUpdate": {
 		"message": "Notify Update"
 	},
@@ -77,12 +83,6 @@
 	"mngImportChannels": {
 		"message": "Import channels"
 	},
-	"optLikeNormalVideos": {
-		"message": "Me gustan los videos normales"
-	},
-	"optLikeShorts": {
-		"message": "Me gustan los Shorts"
-	},
 	"optListOr": {
 		"message": "Cualquiera de los dos sirve"
 	},
@@ -91,5 +91,35 @@
 	},
 	"optListCombination": {
 		"message": "¿Cómo debe afectar la lista al modo de vídeo?"
+	},
+	"optListInfoLabel": {
+		"message": "Información sobre el modo de lista"
+	},
+	"optListInfoBlack": {
+		"message": "Se excluyen los vídeos de los canales incluidos en la lista."
+	},
+	"optListInfoWhite": {
+		"message": "Solo los vídeos de los canales incluidos en la lista cumplen la regla."
+	},
+	"optListInfoAnd": {
+		"message": "El vídeo debe cumplir tanto el modo de Me gusta seleccionado como la regla de la lista. El modo Desactivar sigue impidiendo todos los Me gusta."
+	},
+	"optListInfoOr": {
+		"message": "El vídeo puede cumplir el modo de Me gusta seleccionado o la regla de la lista."
+	},
+	"msgExportSuccess": {
+		"message": "Lista de canales exportada."
+	},
+	"msgExportFail": {
+		"message": "Error al exportar."
+	},
+	"msgImportFail": {
+		"message": "Error al importar"
+	},
+	"msgImportCancel": {
+		"message": "Importación cancelada."
+	},
+	"msgImportSucess": {
+		"message": "Importación completada."
 	}
 }
