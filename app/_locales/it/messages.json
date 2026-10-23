@@ -1,13 +1,12 @@
 {
 	"appName": {
-		"message": "YouTube Auto Like",
-		"description": "Nome dell'applicazione"
+		"message": "YouTube Auto Like"
 	},
 	"appDesc": {
-		"message": "Metti automaticamente Mi piace ai video YouTube dei tuoi creator preferiti.",
+		"message": "Metti automaticamente Mi piace ai video YouTube dei tuoi creator preferiti."
 	},
 	"appDescDetail": {
-		"message": "Questa estensione mette automaticamente Mi piace ai video dei canali a cui sei iscritto. Non devi fare nulla e non è necessario autenticarti. In alternativa, puoi mettere Mi piace automaticamente a TUTTI i video. Perché? Non ne ho idea. Divertiti! Puoi suggerire nuove funzionalità o contribuire:",
+		"message": "Questa estensione mette automaticamente Mi piace ai video dei canali a cui sei iscritto. Non devi fare nulla e non è necessario autenticarti. In alternativa, puoi mettere Mi piace automaticamente a TUTTI i video. Perché? Non ne ho idea. Divertiti! Puoi suggerire nuove funzionalità o contribuire:"
 	},
 	"optLikeSub": {
 		"message": "Metti Mi piace solo ai video dei canali a cui sei iscritto"
