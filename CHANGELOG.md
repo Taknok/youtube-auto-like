@@ -1,3 +1,11 @@
+## [4.5.3](https://github.com/Taknok/youtube-auto-like/compare/4.5.2...4.5.3) (2026-10-24)
+
+### Bug Fixes
+
+* Improve inputs and labels alignment in options ([a992691](https://github.com/Taknok/youtube-auto-like/commit/a9926919715c3a78c5e09f50b11d0e1939d805c0))
+* Notification message not showing in list management ([66042e3](https://github.com/Taknok/youtube-auto-like/commit/66042e37739aae3acdadd8d1bb794d7190243b0a)), closes [#157](https://github.com/Taknok/youtube-auto-like/issues/157)
+* **option:** Handle overflow in input ([1c0a890](https://github.com/Taknok/youtube-auto-like/commit/1c0a8907e7dfab8e2c570d262745716f6fdbf6e8)), closes [#157](https://github.com/Taknok/youtube-auto-like/issues/157)
+
 ## [4.5.2](https://github.com/Taknok/youtube-auto-like/compare/4.5.1...4.5.2) (2026-10-23)
 
 ### Bug Fixes
