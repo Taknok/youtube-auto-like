@@ -74,10 +74,10 @@
 	"mngURL": {
 		"message": "Kanavan osoite"
 	},
-	"mngExportChannels": {
+	"msgExportChannels": {
 		"message": "Vie kanavalista"
 	},
-	"mngImportChannels": {
+	"msgImportChannels": {
 		"message": "Tuo kanavalista"
 	},
 	"optListOr": {

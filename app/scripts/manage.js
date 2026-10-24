@@ -52,10 +52,10 @@ function addCreatorRow(creator) {
 	button.addEventListener('click', () => {
 		removeCreator(creator).then(() => {
 			tr.remove();
-			setStatus('Creator removed.');
+			setStatus(chrome.i18n.getMessage('msgCreatorRemoved'));
 		}).catch((err) => {
 			console.error(err);
-			setStatus('Failed to remove creator.', true);
+			setStatus(chrome.i18n.getMessage('msgCreatorRemovalFail'), true);
 		});
 	});
 	td_rm.appendChild(button);
@@ -96,22 +96,22 @@ function downloadCreatorList() {
 		a.click();
 		document.body.removeChild(a);
 		URL.revokeObjectURL(url);
-		setStatus(chrome.i18n.getMessage('mngExportSuccess'));
+		setStatus(chrome.i18n.getMessage('msgExportSuccess'));
 	}).catch((e) => {
 		console.error(e);
-		setStatus(chrome.i18n.getMessage('mngExportFail'), true);
+		setStatus(chrome.i18n.getMessage('msgExportFail'), true);
 	});
 }
 
 function handleImportFile(file) {
 	if (!file) {
-		setStatus(chrome.i18n.getMessage('mngImportFail'), true);
+		setStatus(chrome.i18n.getMessage('msgImportFail'), true);
 		return;
 	}
 
-	const confirmed = confirm(chrome.i18n.getMessage('mngImportConfirm'));
+	const confirmed = confirm(chrome.i18n.getMessage('msgImportConfirm'));
 	if (!confirmed) {
-		setStatus(chrome.i18n.getMessage('mngImportCancel'), true);
+		setStatus(chrome.i18n.getMessage('msgImportCancel'), true);
 		return;
 	}
 
@@ -133,20 +133,20 @@ function handleImportFile(file) {
 				return optionManager.set(options);
 			}).then(() => {
 				loadCreatorList();
-				setStatus(chrome.i18n.getMessage('mngImportSuccess'));
+				setStatus(chrome.i18n.getMessage('msgImportSuccess'));
 			}).catch((err) => {
 				console.error(err);
-				setStatus(`${chrome.i18n.getMessage('mngImportFail')} (storage error).`, true);
+				setStatus(`${chrome.i18n.getMessage('msgImportFail')} (storage error).`, true);
 			});
 		} catch (err) {
 			console.error(err);
-			setStatus(`${chrome.i18n.getMessage('mngImportFail')}: ${err.message}`, true);
+			setStatus(`${chrome.i18n.getMessage('msgImportFail')}: ${err.message}`, true);
 		}
 	};
 
 	reader.onerror = (err) => {
 		console.error(err);
-		setStatus(`${chrome.i18n.getMessage('mngImportFail')} (file read error).`, true);
+		setStatus(`${chrome.i18n.getMessage('msgImportFail')} (file read error).`, true);
 	};
 
 	reader.readAsText(file, 'UTF-8');

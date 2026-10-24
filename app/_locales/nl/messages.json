@@ -77,10 +77,10 @@
 	"mngURL": {
 		"message": "Kanaal URL"
 	},
-	"mngExportChannels": {
+	"msgExportChannels": {
 		"message": "Export kanaal"
 	},
-	"mngImportChannels": {
+	"msgImportChannels": {
 		"message": "Import kanaal"
 	},
 	"optListOr": {
@@ -122,7 +122,13 @@
 	"msgImportSucess": {
 		"message": "Importeren geslaagd."
 	},
-	"mngImportConfirm": {
+	"msgImportConfirm": {
 		"message": "Bij het importeren wordt de huidige lijst met makers gewist. Weet je zeker dat je door wilt gaan ?"
+	},
+	"msgCreatorRemoved": {
+		"message": "Maker verwijderd."
+	},
+	"msgCreatorRemovalFail": {
+		"message": "Mislukt om maker te verwijderen."
 	}
 }

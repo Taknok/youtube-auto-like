@@ -74,10 +74,10 @@
 	"mngURL": {
 		"message": "URL del canale"
 	},
-	"mngExportChannels": {
+	"msgExportChannels": {
 		"message": "Esporta i canali"
 	},
-	"mngImportChannels": {
+	"msgImportChannels": {
 		"message": "Importa i canali"
 	},
 	"optListOr": {

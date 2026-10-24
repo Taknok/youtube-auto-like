@@ -75,10 +75,10 @@
 	"mngURL": {
 		"message": "Channel URL"
 	},
-	"mngExportChannels": {
+	"msgExportChannels": {
 		"message": "Export channels"
 	},
-	"mngImportChannels": {
+	"msgImportChannels": {
 		"message": "Import channels"
 	},
 	"optListOr": {
@@ -120,7 +120,13 @@
 	"msgImportSucess": {
 		"message": "Import successful."
 	},
-	"mngImportConfirm": {
+	"msgImportConfirm": {
 		"message": "Importing will erase the current creator list. Are you sure you want to proceed?"
+	},
+	"msgCreatorRemoved": {
+		"message": "Creator removed from list."
+	},
+	"msgCreatorRemovalFail": {
+		"message": "Failed to remove creator."
 	}
 }
