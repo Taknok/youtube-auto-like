@@ -208,7 +208,7 @@ input[type="number"] {
 	padding-left: 0.25em;
 }
 
-input[type="button"] {
+input[type="button"], .creator-action-button {
   outline: none;
   height: 40px;
   text-align: center;
@@ -223,18 +223,46 @@ input[type="button"] {
   font-weight: bold;
   transition: all 0.25s ease;
 }
-input[type="button"]:hover {
+.creator-action-button {
+  box-sizing: border-box;
+  height: auto;
+  min-height: 40px;
+  padding: 0.5em 0.75em;
+  font-family: inherit;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+input[type="button"]:hover, .creator-action-button:hover {
   color: white;
   background: #cf1e15;
   border: 2px solid #cf1e15;
 }
-input[type="button"]:active {
+input[type="button"]:active, .creator-action-button:active {
   letter-spacing: 2px;
 }
 input[type="button"]:after {
   content: "SUBMIT";
 }
 
+#options-form-list .form-group {
+  display: flex;
+  align-items: stretch;
+  gap: 1em;
+  margin-bottom: 0.2em;
+}
+
+#options-form-list .creator-action-button {
+  box-sizing: border-box;
+  flex: 1 1 0;
+  width: auto;
+  min-width: 0;
+  height: auto;
+  min-height: 40px;
+  margin-right: 0;
+  padding: 0.5em 0.75em;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
 
 hr {
 	border-top: 1px solid #8c8b8b;
