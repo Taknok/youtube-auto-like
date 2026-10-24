@@ -114,13 +114,8 @@ input[type='radio'] {
 }
 
 input[type='radio'] + label {
-	display: inline-block;
-	width: calc(100% - 2.5em);
-	vertical-align: top;
-}
-
-input[type='radio']:hover, input[type='radio']:checked {
-	transform: scale(1.1);
+	flex: 1;
+	min-width: 0;
 }
 
 input[type='radio']:active {
@@ -141,6 +136,28 @@ input.toggle-on-button ~ div.toggle-content {
 
 input.toggle-on-button:checked ~ div.toggle-content {
 	display: block;
+}
+
+.option-row {
+	display: flex;
+}
+
+.option-row > input {
+	flex-shrink: 0;
+	top: 0;
+}
+
+.option-row > label {
+	margin-bottom: 0;
+}
+
+.toggle-option-row {
+	flex-wrap: wrap;
+}
+
+.toggle-option-row > .toggle-content {
+	box-sizing: border-box;
+	flex: 0 0 100%;
 }
 
 .list-mode-info {
